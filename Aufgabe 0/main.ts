@@ -1,6 +1,13 @@
-var person = prompt ("Please enter your name");
+document.addEventListener("DOMContentLoaded", Begruesung);
 
-if (person !=null) {
-    document.getElementById("Hello").innerHTML =
-    "Hello " + person;
+function Begruesung() {
+
+    var name = prompt("Please enter your name.");
+
+    if (name != null) {
+        document.getElementById("Hello").innerHTML =
+            "Hello " + name + ".";
+    }
+
+    console.info("Hello " + name + ".");
 }
