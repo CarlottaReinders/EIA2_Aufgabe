@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", Begruesung);
 
 function Begruesung() {
 
-    var name = prompt("Please enter your name.");
+    var name:string = prompt("Please enter your name.");
 
     if (name != null) {
         document.getElementById("Hello").innerHTML =
