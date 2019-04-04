@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+body {background-color: #ffe2c1}
+
+ul {
+    background-color:white;
+    list-style-type: none;
+    margin: 2em;
+    padding: 2em;
+}
+
+li {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 1.5em;
+    line-height: 2em;
+}
+
+li:hover {
+    background-color: #ca965b;
+    color: white;
+}
+
+button {
+    height: 2em;
+    width: 5em;
+    background-color: #ffe2c1;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 0.8em;
+}
+
+a {
+    color: black;
+}
