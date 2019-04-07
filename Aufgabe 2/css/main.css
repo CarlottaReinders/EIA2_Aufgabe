@@ -21,6 +21,12 @@ body {background-color: rgb(91, 104, 93)}
     color:red;
 }
 
+.kartenrückseite{
+    width: 6em;
+    height: 9em;
+}
+
+
 #Stapel {
     background-color: #ffffff;
     margin: 2em 25em;
