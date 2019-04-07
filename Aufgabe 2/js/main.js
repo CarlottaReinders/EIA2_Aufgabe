@@ -196,7 +196,7 @@ function kartenstapelGenerieren() {
     obersteKarte = deck[i];
     deck[i].kartendeck = false;
     var write = "";
-    write += "<div class=\"cards\">";
+    write += "<div>";
     switch (obersteKarte.bild) {
         case 1:
             write += "<img src=\"img/herz.jpg\" class=\"symbol\" alt=\"\u2665\">\n                <div class=\"rot\">";

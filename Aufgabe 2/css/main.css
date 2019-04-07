@@ -21,15 +21,18 @@ body {background-color: rgb(91, 104, 93)}
     color:red;
 }
 
-.pile {
+#Stapel {
     background-color: #ffffff;
-    padding: 6em 3em;
     margin: 2em 25em;
-    width: 2em;
+    padding: 2em;
+    width: 5em;
+    height: 5em;
     border-color: black;
     border-style: dashed;
     border-width: 0.5em;
     border-radius: 1em;
+    justify-content: center;
+    text-align: center;
 }
 
 .cards {

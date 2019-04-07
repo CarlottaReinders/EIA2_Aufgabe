@@ -256,7 +256,7 @@ function kartenstapelGenerieren() {
     deck[i].kartendeck = false;
 
     let write:string = "";
-        write += `<div class="cards">`;
+        write += `<div>`;
 
         switch (obersteKarte.bild) {
             case 1:
