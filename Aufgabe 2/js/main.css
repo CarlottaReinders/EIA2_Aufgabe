@@ -59,3 +59,23 @@ div {
     display: flex;
     flex-direction: row;
 }
+
+.rückseite {
+    width: 160px;
+    height: 224px;
+    margin: 0px;
+}
+
+.symbol{
+    height: 40px;
+    margin: 25px 25px 0px 25px;
+}
+
+
+.rot{
+    color: red;
+}
+
+.schwarz{
+    color: black;
+}
