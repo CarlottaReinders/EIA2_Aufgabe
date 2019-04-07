@@ -162,7 +162,7 @@ var kaA = {
 var deck = [h7, h8, h9, h10, hB, hD, hK, hA, kr7, kr8, kr9, kr10, krB, krD, krK, krA, p7, p8, p9, p10, pB, pD, pK, pA, ka7, ka8, ka9, ka10, kaB, kaD, kaK, kaA];
 /* Array für die Handkarten*/
 var hand = [];
-var topCard = [];
+var obersteKarte = [];
 /* Funktion für die Anzahl der Karten, die man bekommt*/
 function ausgegebeneKarten() {
     var kartenanzahl = 0;
@@ -193,11 +193,11 @@ function kartenstapelGenerieren() {
     while (deck[i].kartendeck == false) {
         i = Math.floor(Math.random() * 31);
     }
-    topCard = deck[i];
+    obersteKarte = deck[i];
     deck[i].kartendeck = false;
     var write = "";
     write += "<div class=\"cards\">";
-    switch (topCard.bild) {
+    switch (obersteKarte.bild) {
         case 1:
             write += "<img src=\"img/herz.jpg\" class=\"symbol\" alt=\"\u2665\">\n                <div class=\"rot\">";
             break;
@@ -213,7 +213,7 @@ function kartenstapelGenerieren() {
         default:
             console.log("Bild konnte nicht geladen werden");
     }
-    switch (topCard.value) {
+    switch (obersteKarte.value) {
         case 7:
             write += "7</div>";
             break;

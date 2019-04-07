@@ -205,7 +205,7 @@ let deck:karten[]=[h7, h8, h9, h10, hB, hD, hK, hA, kr7, kr8, kr9, kr10, krB, kr
 /* Array für die Handkarten*/
 let hand:karten[]=[];
 
-let topCard:karten[]=[];
+let obersteKarte:karten[]=[];
 
 
 /* Funktion für die Anzahl der Karten, die man bekommt*/
@@ -252,13 +252,13 @@ function kartenstapelGenerieren() {
         i = Math.floor(Math.random() * 31);
     }
 
-    topCard=deck[i];
+    obersteKarte=deck[i];
     deck[i].kartendeck = false;
 
     let write:string = "";
         write += `<div class="cards">`;
 
-        switch (topCard.bild) {
+        switch (obersteKarte.bild) {
             case 1:
                 write += `<img src="img/herz.jpg" class="symbol" alt="♥">
                 <div class="rot">`;
@@ -279,7 +279,7 @@ function kartenstapelGenerieren() {
                 console.log("Bild konnte nicht geladen werden")  
         }
 
-        switch (topCard.value) {
+        switch (obersteKarte.value) {
             case 7:
             write += `7</div>`;
             break;
