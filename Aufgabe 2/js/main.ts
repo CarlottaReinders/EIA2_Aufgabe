@@ -205,7 +205,7 @@ let deck:karten[]=[h7, h8, h9, h10, hB, hD, hK, hA, kr7, kr8, kr9, kr10, krB, kr
 /* Array für die Handkarten*/
 let hand:karten[]=[];
 
-let obersteKarte:karten[]=[];
+let obersteKarte:karten;
 
 
 /* Funktion für die Anzahl der Karten, die man bekommt*/
@@ -265,7 +265,7 @@ function kartenstapelGenerieren() {
                 break;
             case 2:
                 write += `<img src="img/kreuz.jpg" class="symbol" alt="♣" 
-                <div class="black">`;
+                <div class="schwarz">`;
                 break;
             case 3:
                 write += `<img src="img/pik.jpg" class="symbol" alt="♠"
@@ -326,28 +326,27 @@ function handkarten() {
     document.getElementById("kartenAufHand").innerHTML = "";
 
     for (var n:number = 0; n<hand.length; n++){
-        let write:string = "";
-        write += `<div class="cards"`;
+        let write:string = `<div class="cards">`;
 
         switch (hand[n].bild){
             case 1:
-                write += `<img src="img/herz.jpg" class="Symbol" alt="♥">
-                <div class="rot">`; 
+                write += `<img src="img/herz.jpg" class="symbol" alt="♥">
+                <div class="rot">`;
                 break;
             case 2:
-                write += `<img src="img/kreuz.jpg" class="Symbol" alt="♣">
+                write += `<img src="img/kreuz.jpg" class="symbol" alt="♣" 
                 <div class="schwarz">`;
                 break;
             case 3:
-                write += `<img src="img/pik.jpg" class="Symbol" alt="♠">
-                <div class="schwarz">`; 
+                write += `<img src="img/pik.jpg" class="symbol" alt="♠"
+                <div class="schwarz">`;
                 break;
             case 4:
-                write += `<img src="img/karo.jpg" class="Symbol" alt="♦">
+                write += `<img src="img/karo.jpg" class="symbol" alt="♦" 
                 <div class="rot">`;
-                break;        
+                break;
             default:
-                console.log("Symbol konnte nicht geladen werden")
+                console.log("Bild konnte nicht geladen werden")  
             }
 
         switch (hand[n].value){

@@ -17,20 +17,8 @@ body {background-color: rgb(91, 104, 93)}
     justify-content: center;
 }
 
-
-div div {
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 6em 3em;
-    margin: 2em;
-    width: 2em;
-    border-color: black;
-    border-style: solid;
-    border-width: 0.5em;
-    border-radius: 1em;
+.rot{
+    color:red;
 }
 
 .pile {
@@ -58,24 +46,4 @@ div div {
 div {
     display: flex;
     flex-direction: row;
-}
-
-.rückseite {
-    width: 5em;
-    height: 10em;
-    margin: 0em;
-}
-
-.symbol {
-    height: 2em;
-    margin: 4em 4em 0px 4em;
-}
-
-
-.rot {
-    color: red;
-}
-
-.schwarz {
-    color: black;
 }

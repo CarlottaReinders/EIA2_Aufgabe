@@ -162,7 +162,7 @@ var kaA = {
 var deck = [h7, h8, h9, h10, hB, hD, hK, hA, kr7, kr8, kr9, kr10, krB, krD, krK, krA, p7, p8, p9, p10, pB, pD, pK, pA, ka7, ka8, ka9, ka10, kaB, kaD, kaK, kaA];
 /* Array für die Handkarten*/
 var hand = [];
-var obersteKarte = [];
+var obersteKarte;
 /* Funktion für die Anzahl der Karten, die man bekommt*/
 function ausgegebeneKarten() {
     var kartenanzahl = 0;
@@ -202,7 +202,7 @@ function kartenstapelGenerieren() {
             write += "<img src=\"img/herz.jpg\" class=\"symbol\" alt=\"\u2665\">\n                <div class=\"rot\">";
             break;
         case 2:
-            write += "<img src=\"img/kreuz.jpg\" class=\"symbol\" alt=\"\u2663\" \n                <div class=\"black\">";
+            write += "<img src=\"img/kreuz.jpg\" class=\"symbol\" alt=\"\u2663\" \n                <div class=\"schwarz\">";
             break;
         case 3:
             write += "<img src=\"img/pik.jpg\" class=\"symbol\" alt=\"\u2660\"\n                <div class=\"schwarz\">";
@@ -251,23 +251,22 @@ function deckGenerieren() {
 function handkarten() {
     document.getElementById("kartenAufHand").innerHTML = "";
     for (var n = 0; n < hand.length; n++) {
-        var write = "";
-        write += "<div class=\"cards\"";
+        var write = "<div class=\"cards\">";
         switch (hand[n].bild) {
             case 1:
-                write += "<img src=\"img/herz.jpg\" class=\"Symbol\" alt=\"\u2665\">\n                <div class=\"rot\">";
+                write += "<img src=\"img/herz.jpg\" class=\"symbol\" alt=\"\u2665\">\n                <div class=\"rot\">";
                 break;
             case 2:
-                write += "<img src=\"img/kreuz.jpg\" class=\"Symbol\" alt=\"\u2663\">\n                <div class=\"schwarz\">";
+                write += "<img src=\"img/kreuz.jpg\" class=\"symbol\" alt=\"\u2663\" \n                <div class=\"schwarz\">";
                 break;
             case 3:
-                write += "<img src=\"img/pik.jpg\" class=\"Symbol\" alt=\"\u2660\">\n                <div class=\"schwarz\">";
+                write += "<img src=\"img/pik.jpg\" class=\"symbol\" alt=\"\u2660\"\n                <div class=\"schwarz\">";
                 break;
             case 4:
-                write += "<img src=\"img/karo.jpg\" class=\"Symbol\" alt=\"\u2666\">\n                <div class=\"rot\">";
+                write += "<img src=\"img/karo.jpg\" class=\"symbol\" alt=\"\u2666\" \n                <div class=\"rot\">";
                 break;
             default:
-                console.log("Symbol konnte nicht geladen werden");
+                console.log("Bild konnte nicht geladen werden");
         }
         switch (hand[n].value) {
             case 7:
