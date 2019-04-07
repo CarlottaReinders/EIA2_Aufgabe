@@ -182,7 +182,7 @@ function ausgegebeneKarten() {
 function karteZiehen() {
     var i = Math.floor(Math.random() * 31);
     while (deck[i].kartendeck == false) {
-        i = Math.floor(Math.random() * 31); /* eine zufällige Karte von den Stellen 0 bis 31 im Array wird ausgewählt */
+        i = Math.floor(Math.random() * 31); /* eine zufällige Karte von den Stellen 0 bis 31 im Array wird ausgegeben */
     }
     hand[hand.length] = deck[i];
     deck[i].kartendeck = false;
