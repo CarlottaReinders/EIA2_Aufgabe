@@ -6,7 +6,6 @@ interface karten {
 }
 
 /* Array für das Kartendeck*/ 
-let deck:karten[]=[h7, h8, h9, h10, hB, hD, hK, hA, kr7, kr8, kr9, kr10, krB, krD, krK, krA, p7, p8, p9, p10, pB, pD, pK, pA, ka7, ka8, ka9, ka10, kaB, kaD, kaK, kaA];
 
 let h7:karten={
     kartendeck: true,
@@ -200,6 +199,7 @@ let kaA:karten={
     value: 14,
 }
 
+let deck:karten[]=[h7, h8, h9, h10, hB, hD, hK, hA, kr7, kr8, kr9, kr10, krB, krD, krK, krA, p7, p8, p9, p10, pB, pD, pK, pA, ka7, ka8, ka9, ka10, kaB, kaD, kaK, kaA];
 
 
 /* Array für die Handkarten*/
@@ -213,14 +213,14 @@ function ausgegebeneKarten() {
     let kartenanzahl: number = 0;
 
     do { 
-        kartenanzahl = parseInt(prompt("Kartenanzahl angeben (Zahl zwischen 5 und 7 eingeben"));
+        kartenanzahl = parseInt(prompt("Kartenanzahl angeben (Zahl zwischen 5 und 7 eingeben)")); 
         }
     
     while(isNaN(kartenanzahl) || kartenanzahl > 7 || kartenanzahl < 5);
 
     console.log("kartenanzahl: " +kartenanzahl);
 
-    for(let n:number=0; n<kartenanzahl; n++){
+    for(let n:number=0; n<kartenanzahl; n++){ /* solange die Variable n kleiner ist als die Anzahl der Karten, wird die Funktion "karteZiehen" ausgeführt */
         karteZiehen();
     }
 
@@ -237,7 +237,7 @@ function karteZiehen() {
 
     while (deck[i].kartendeck==false)
         {
-            i = Math.floor(Math.random() * 31);
+            i = Math.floor(Math.random() * 31);  /* eine zufällige Karte von den Stellen 0 bis 31 im Array wird ausgewählt */
         }
     hand[hand.length]=deck[i]; 
     deck[i].kartendeck = false;
@@ -309,8 +309,9 @@ function kartenstapelGenerieren() {
         }
         write += `</div>`
 document.getElementById("Stapel").innerHTML = `${write}`;
-        }
+
 }
+
 
 
 function deckGenerieren(){
