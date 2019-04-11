@@ -177,7 +177,7 @@ let obersteKarte:karten;
 
 /* Funktion für die Anzahl der Karten, die man bekommt*/
 function ausgegebeneKarten():void {
-    let kartenanzahl: number = 0;
+    let kartenanzahl: number;
 
     do { 
         kartenanzahl = parseInt(prompt("Kartenanzahl angeben (Zahl von 1 bis 6 eingeben)")); 
