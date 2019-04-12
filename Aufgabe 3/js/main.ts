@@ -1,11 +1,38 @@
-/* Die Karten initialisieren */
+/* 1. Interface Karten */
+
+/* 2. Arrays */
+
+/* 3. Funktion Spielstart */
+
+/* 4. Funktion zum Karte ziehen */
+
+/* 5. Funktion um den Ablagestapel zu generieren */
+
+/* 6. Funktion um den Nachziehstapel zu generieren */
+
+/* 7. Funktion um die Handkarten zu generieren */
+
+/* 8. Funktion zum legen einer Karte */
+
+/* 9. Funktionen zum sortieren der Karten */
+
+/* 10. Funktion zum Karten ziehen beim Drücken der Leertaste */
+
+/* 11. Funktion zum ? */
+
+/* 12. Eventlisteners */
+
+
+
+
+
+/* 1. Interface Karten */
 interface karten {
     bild: number;
     value: number;
     position: string;
 }
 
-/* Array für das Kartendeck*/ 
 
 let h7:karten={
     bild:1,
@@ -199,17 +226,19 @@ let kaA:karten={
     position: "nichts",
 }
 
+
+/* 2. Arrays */
 let deck:karten[]=[h7, h8, h9, h10, hB, hD, hK, hA, kr7, kr8, kr9, kr10, krB, krD, krK, krA, p7, p8, p9, p10, pB, pD, pK, pA, ka7, ka8, ka9, ka10, kaB, kaD, kaK, kaA];
 
-
-/* Array für die Handkarten*/
 let hand:karten[]=[];
 
 let obersteKarte:karten;
 
+let ablagestapel:karten[]=[];
 
-/* Funktion für die Anzahl der Karten, die man bekommt*/
-function ausgegebeneKarten():void {
+
+/* 3. Funktion Spielstart */
+function spielstart():void {
     let kartenanzahl: number;
 
     do { 
@@ -226,25 +255,34 @@ function ausgegebeneKarten():void {
 
     console.log(hand);
 
-    kartenstapelGenerieren();
-    deckGenerieren();
-    handkarten();
-}
+    nachziehstapelGenerieren();
 
-/* Funktion zum Karte ziehen */
-function karteZiehen():void {
-    let i:number = Math.floor(Math.random() * (deck.length));
-    hand.push(deck[i]); /* Karte aus dem Deck wird den Handkarten hinzugefügt */
-    deck.splice(i,1);
-}
-
-
-/* Funktion für den Kartenstapel */
-function kartenstapelGenerieren():void {
     let i:number = Math.floor(Math.random() * (deck.length));
     obersteKarte=deck[i];
     deck.splice(i,1);
 
+    ablagestapelGenerieren();
+    handkarten();
+}
+
+
+/* 4. Funktion zum Karte ziehen */
+function karteZiehen():void {
+    if (deck.length>0) { 
+        let i:number = Math.floor(Math.random() * (deck.length));
+        hand.push(deck[i]); /* Karte aus dem Deck wird den Handkarten hinzugefügt */
+        deck.splice(i,1);
+        handkarten();
+        console.log(hand);
+        }
+    else {
+        alert("Der Nachziehstpel ist leer.")
+    }
+}
+
+
+/* 5. Funktion um den Ablagestapel zu generieren */
+function ablagestapelGenerieren():void {
 
     let write:string = "";
         write += `<div class="cards">`;
@@ -305,20 +343,25 @@ document.getElementById("Stapel").innerHTML = `${write}`;
 }
 
 
-
-function deckGenerieren():void{
+/* 6. Funktion um den Nachziehstapel zu generieren */
+function nachziehstapelGenerieren():void{
+    document.getElementById("Deck").addEventListener("click", karteZiehen); /* durch das click-event wird die Funktion karteZiehen ausgeführt */
     document.getElementById("Deck").innerHTML = `<div class="cards">
     <img src="img/rückseite.jpeg" alt="MISSING TEXTURE" class="kartenrückseite">
     </div>`;     
 }
 
 
-/* Funktion für die Handkarten */
+/* 7. Funktion um die Handkarten zu generieren */
 function handkarten():void {
+
+    document.getElementById("kartenAufHand").addEventListener("click", karteLegen);
     document.getElementById("kartenAufHand").innerHTML = "";
 
-    for (var n:number = 0; n<hand.length; n++){
-        let write:string = `<div class="cards">`;
+    for (let n:number = 0; n<hand.length; n++){
+        hand[n].position="position"+n;
+        let write:string = "";
+        write += `<div class="cards" id="position${n}">`;
 
         switch (hand[n].bild){
             case 1:
@@ -375,8 +418,68 @@ function handkarten():void {
 }
 
 
-function init() {
-    ausgegebeneKarten();
+
+/* 8. Funktion zum legen einer Karte */
+function karteLegen():void {
+    let gewählteKarteID: HTMLElement = <HTMLElement>event.target;
+    for (let i=0; i < hand.length; i++) {
+        if (String(gewählteKarteID.getAttribute("id")) == hand[i].position) {
+            if (hand[i].bild==obersteKarte.bild || hand[i].value==obersteKarte.value) {
+                ablagestapel.push(obersteKarte);
+                obersteKarte=hand[i];
+                hand[i].position="nichts";
+                hand.splice(i,1);
+
+                handkarten();
+                ablagestapelGenerieren();
+            }
+            else {
+                alert("diese Karte kann nicht gespielt werden.")
+            }
+        }
+    }
 }
 
+
+/* 9. Funktionen zum sortieren der Karten */
+function kartenSortieren() {
+    hand.sort(sortByvalue);
+    hand.sort(sortBybild);
+    handkarten();
+}
+
+
+function sortByvalue(_a: karten, _b: karten): number { /* die values der Karten werden miteinander verglichen */
+    let value_a: number = _a.value; /* die Variablen werden definiert */
+    let value_b: number = _b.value;
+
+    if (value_a < value_b) return -1; /* wenn a kleiner ist als b, passiert nichts.*/
+    if (value_a > value_b) return 1; /* wenn a größer ist als b, dann wird a um eine Stelle verschoben */
+    if (value_a == value_b) return 0; /* wenn a und b gleichwertig sind, passiert nichts */
+}
+
+function sortBybild(_a: karten, _b: karten): number { /* die Bilder der Karten werden miteinander verglichen */
+    let bild_a: number = _a.value; /* die Variablen werden definiert */
+    let bild_b: number = _b.value;
+
+    if (bild_a < bild_b) return -1; 
+    if (bild_a > bild_b) return 1; 
+    if (bild_a == bild_b) return 0; 
+}
+
+
+/* 10. Funktion zum Karten ziehen beim Drücken der Leertaste */
+function whatKey(event: KeyboardEvent):void { /* wenn die Leertaste gedrückt wird, wird eine Karte gezogen.*/
+    if (event.keyCode == 32) karteZiehen();
+}
+
+
+/* 11. Funktion zum ? */
+function init() {
+    spielstart();
+}
+
+
+/* 12. Eventlisteners */
 document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("keydown", whatKey);
