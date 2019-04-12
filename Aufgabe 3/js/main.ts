@@ -2,6 +2,7 @@
 interface karten {
     bild: number;
     value: number;
+    position: string;
 }
 
 /* Array für das Kartendeck*/ 
@@ -9,161 +10,193 @@ interface karten {
 let h7:karten={
     bild:1,
     value:7,
+    position: "nichts",
 }
 
 let h8:karten={
     bild: 1,
     value: 8,
+    position: "nichts",
 }
 
 let h9:karten={
     bild: 1,
     value: 9,
+    position: "nichts",
 }
 
 let h10:karten={
     bild: 1,
     value: 10,
+    position: "nichts",
 }
 
 let hB:karten={
     bild: 1,
     value: 11,
+    position: "nichts",
 }
 
 let hD:karten={
     bild: 1,
     value: 12,
+    position: "nichts",
 }
 
 let hK:karten={
     bild: 1,
     value: 13,
+    position: "nichts",
 }
 
 let hA:karten={
     bild: 1,
     value: 14,
+    position: "nichts",
 }
 
 let kr7:karten={
     bild: 2,
     value: 7,
+    position: "nichts",
 }
 
 let kr8:karten={
     bild: 2,
     value: 8,
+    position: "nichts",
 }
 
 let kr9:karten={
     bild: 2,
     value: 9,
+    position: "nichts",
 }
 
 let kr10:karten={
     bild: 2,
     value: 10,
+    position: "nichts",
 }
 
 let krB:karten={
     bild: 2,
     value: 11,
+    position: "nichts",
 }
 
 let krD:karten={
     bild: 2,
     value: 12,
+    position: "nichts",
 }
 
 let krK:karten={
     bild: 2,
     value: 13,
+    position: "nichts",
 }
 
 let krA:karten={
     bild: 2,
     value: 14,
+    position: "nichts",
 }
 
 let p7:karten={
     bild: 3,
     value: 7,
+    position: "nichts",
 }
 
 let p8:karten={
     bild: 3,
     value: 8,
+    position: "nichts",
 }
 
 let p9:karten={
     bild: 3,
     value: 9,
+    position: "nichts",
 }
 
 let p10:karten={
     bild: 3,
     value: 10,
+    position: "nichts",
 }
 
 let pB:karten={
     bild: 3,
     value: 11,
+    position: "nichts",
 }
 
 let pD:karten={
     bild: 3,
     value: 12,
+    position: "nichts",
 }
 
 let pK:karten={
     bild: 3,
     value: 13,
+    position: "nichts",
 }
 
 let pA:karten={
     bild: 3,
     value: 14,
+    position: "nichts",
 }
 
 let ka7:karten={
     bild: 4,
     value: 7,
+    position: "nichts",
 }
 
 let ka8:karten={
     bild: 4,
     value: 8,
+    position: "nichts",
 }
 
 let ka9:karten={
     bild: 4,
     value: 9,
+    position: "nichts",
 }
 
 let ka10:karten={
     bild: 4,
     value: 10,
+    position: "nichts",
 }
 
 let kaB:karten={
     bild: 4,
     value: 11,
+    position: "nichts",
 }
 
 let kaD:karten={
     bild: 4,
     value: 12,
+    position: "nichts",
 }
 
 let kaK:karten={
     bild: 4,
     value: 13,
+    position: "nichts",
 }
 
 let kaA:karten={
     bild: 4,
     value: 14,
+    position: "nichts",
 }
 
 let deck:karten[]=[h7, h8, h9, h10, hB, hD, hK, hA, kr7, kr8, kr9, kr10, krB, krD, krK, krA, p7, p8, p9, p10, pB, pD, pK, pA, ka7, ka8, ka9, ka10, kaB, kaD, kaK, kaA];
