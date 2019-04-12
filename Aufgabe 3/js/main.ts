@@ -18,7 +18,7 @@
 
 /* 10. Funktion zum Karten ziehen beim Drücken der Leertaste */
 
-/* 11. Funktion zum ? */
+/* 11. Funktion zum initialisieren */
 
 /* 12. Eventlisteners */
 
@@ -262,6 +262,9 @@ function spielstart():void {
     deck.splice(i,1);
 
     ablagestapelGenerieren();
+
+    document.getElementById("Sortieren").addEventListener("click", kartenSortieren);
+
     handkarten();
 }
 
@@ -422,6 +425,7 @@ function handkarten():void {
 /* 8. Funktion zum legen einer Karte */
 function karteLegen():void {
     let gewählteKarteID: HTMLElement = <HTMLElement>event.target;
+    
     for (let i=0; i < hand.length; i++) {
         if (String(gewählteKarteID.getAttribute("id")) == hand[i].position) {
             if (hand[i].bild==obersteKarte.bild || hand[i].value==obersteKarte.value) {
@@ -449,22 +453,22 @@ function kartenSortieren() {
 }
 
 
-function sortByvalue(_a: karten, _b: karten): number { /* die values der Karten werden miteinander verglichen */
-    let value_a: number = _a.value; /* die Variablen werden definiert */
-    let value_b: number = _b.value;
+function sortByvalue(_x: karten, _y: karten): number { /* die values der Karten werden miteinander verglichen */
+    let value_x: number = _x.value; /* die Variablen werden definiert */
+    let value_y: number = _y.value;
 
-    if (value_a < value_b) return -1; /* wenn a kleiner ist als b, passiert nichts.*/
-    if (value_a > value_b) return 1; /* wenn a größer ist als b, dann wird a um eine Stelle verschoben */
-    if (value_a == value_b) return 0; /* wenn a und b gleichwertig sind, passiert nichts */
+    if (value_x < value_y) return -1; /* wenn a kleiner ist als b, passiert nichts.*/
+    if (value_x > value_y) return 1; /* wenn a größer ist als b, dann wird a um eine Stelle verschoben */
+    if (value_x == value_y) return 0; /* wenn a und b gleichwertig sind, passiert nichts */
 }
 
-function sortBybild(_a: karten, _b: karten): number { /* die Bilder der Karten werden miteinander verglichen */
-    let bild_a: number = _a.value; /* die Variablen werden definiert */
-    let bild_b: number = _b.value;
+function sortBybild(_x: karten, _y: karten): number { /* die Bilder der Karten werden miteinander verglichen */
+    let bild_x: number = _x.value; /* die Variablen werden definiert */
+    let bild_y: number = _y.value;
 
-    if (bild_a < bild_b) return -1; 
-    if (bild_a > bild_b) return 1; 
-    if (bild_a == bild_b) return 0; 
+    if (bild_x < bild_y) return -1; 
+    if (bild_x > bild_y) return 1; 
+    if (bild_x == bild_y) return 0; 
 }
 
 
@@ -474,7 +478,7 @@ function whatKey(event: KeyboardEvent):void { /* wenn die Leertaste gedrückt wi
 }
 
 
-/* 11. Funktion zum ? */
+/* 11. Funktion zum initialisieren */
 function init() {
     spielstart();
 }
