@@ -34,9 +34,9 @@ body {background-color: rgb(91, 104, 93)}
 
 .cards {
     background-color: #ffffff;
-    padding: 2em 2em;
+    height: 150px;
     margin: 2em;
-    width: 2em;
+    width: 110px;
     border-color: black;
     border-style: solid;
     border-width: 0.5em;
@@ -46,6 +46,10 @@ body {background-color: rgb(91, 104, 93)}
 div {
     display: flex;
     flex-direction: row;
+}
+
+.cards div {
+    flex-direction: none;
 }
 
 .button {
@@ -58,3 +62,8 @@ div {
     display: inline-block;
     font-size: 16px;
   }
+
+.symbol {
+    height: 50px;
+    margin: 25px 25px 0px 25px;
+}

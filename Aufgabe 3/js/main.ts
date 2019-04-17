@@ -249,7 +249,7 @@ function spielstart():void {
 
     console.log("kartenanzahl: " +kartenanzahl);
 
-    for(let n:number=0; n<kartenanzahl; n++){ /* solange die Variable n kleiner ist als die Anzahl der Karten, wird die Funktion "karteZiehen" ausgeführt */
+    for(let n:number=0; n<kartenanzahl; n++){ /* so lange die Variable n kleiner ist als die Anzahl der Karten, wird die Funktion "karteZiehen" ausgeführt */
         karteZiehen();
     }
 

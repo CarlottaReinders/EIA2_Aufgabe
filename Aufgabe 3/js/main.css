@@ -17,6 +17,11 @@ body {background-color: rgb(91, 104, 93)}
     justify-content: center;
 }
 
+.kartenrückseite {
+    height: 150px;
+    width: 110px;
+}
+
 .rot{
     color:red;
 }

@@ -171,7 +171,7 @@ function spielstart() {
         kartenanzahl = parseInt(prompt("Kartenanzahl angeben (Zahl von 1 bis 6 eingeben)"));
     } while (isNaN(kartenanzahl) || kartenanzahl > 6 || kartenanzahl < 1);
     console.log("kartenanzahl: " + kartenanzahl);
-    for (var n = 0; n < kartenanzahl; n++) { /* solange die Variable n kleiner ist als die Anzahl der Karten, wird die Funktion "karteZiehen" ausgeführt */
+    for (var n = 0; n < kartenanzahl; n++) { /* so lange die Variable n kleiner ist als die Anzahl der Karten, wird die Funktion "karteZiehen" ausgeführt */
         karteZiehen();
     }
     console.log(hand);
@@ -333,24 +333,24 @@ function kartenSortieren() {
     hand.sort(sortBybild);
     handkarten();
 }
-function sortByvalue(_a, _b) {
-    var value_a = _a.value; /* die Variablen werden definiert */
-    var value_b = _b.value;
-    if (value_a < value_b)
+function sortByvalue(_x, _y) {
+    var value_x = _x.value; /* die Variablen werden definiert */
+    var value_y = _y.value;
+    if (value_x < value_y)
         return -1; /* wenn a kleiner ist als b, passiert nichts.*/
-    if (value_a > value_b)
+    if (value_x > value_y)
         return 1; /* wenn a größer ist als b, dann wird a um eine Stelle verschoben */
-    if (value_a == value_b)
+    if (value_x == value_y)
         return 0; /* wenn a und b gleichwertig sind, passiert nichts */
 }
-function sortBybild(_a, _b) {
-    var bild_a = _a.value; /* die Variablen werden definiert */
-    var bild_b = _b.value;
-    if (bild_a < bild_b)
+function sortBybild(_x, _y) {
+    var bild_x = _x.value; /* die Variablen werden definiert */
+    var bild_y = _y.value;
+    if (bild_x < bild_y)
         return -1;
-    if (bild_a > bild_b)
+    if (bild_x > bild_y)
         return 1;
-    if (bild_a == bild_b)
+    if (bild_x == bild_y)
         return 0;
 }
 /* 10. Funktion zum Karten ziehen beim Drücken der Leertaste */
@@ -358,7 +358,7 @@ function whatKey(event) {
     if (event.keyCode == 32)
         karteZiehen();
 }
-/* 11. Funktion zum ? */
+/* 11. Funktion zum initialisieren */
 function init() {
     spielstart();
 }
