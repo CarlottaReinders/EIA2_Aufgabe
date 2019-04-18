@@ -365,3 +365,4 @@ function init() {
 /* 12. Eventlisteners */
 document.addEventListener("DOMContentLoaded", init);
 document.addEventListener("keydown", whatKey);
+//# sourceMappingURL=main.js.map
