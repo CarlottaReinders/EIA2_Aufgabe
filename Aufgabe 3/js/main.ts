@@ -297,15 +297,15 @@ function ablagestapelGenerieren():void {
                 <div class="rot">`;
                 break;
             case 2:
-                write += `<img src="img/kreuz.jpeg" class="symbol" alt="♣" 
+                write += `<img src="img/kreuz.jpeg" class="symbol" alt="♣"> 
                 <div class="schwarz">`;
                 break;
             case 3:
-                write += `<img src="img/pik.jpeg" class="symbol" alt="♠"
+                write += `<img src="img/pik.jpeg" class="symbol" alt="♠">
                 <div class="schwarz">`;
                 break;
             case 4:
-                write += `<img src="img/karo.jpeg" class="symbol" alt="♦" 
+                write += `<img src="img/karo.jpeg" class="symbol" alt="♦">
                 <div class="rot">`;
                 break;
             default:
@@ -372,15 +372,15 @@ function handkarten():void {
                 <div class="rot">`;
                 break;
             case 2:
-                write += `<img src="img/kreuz.jpeg" class="symbol" alt="♣" 
+                write += `<img src="img/kreuz.jpeg" class="symbol" alt="♣"> 
                 <div class="schwarz">`;
                 break;
             case 3:
-                write += `<img src="img/pik.jpeg" class="symbol" alt="♠"
+                write += `<img src="img/pik.jpeg" class="symbol" alt="♠">
                 <div class="schwarz">`;
                 break;
             case 4:
-                write += `<img src="img/karo.jpeg" class="symbol" alt="♦" 
+                write += `<img src="img/karo.jpeg" class="symbol" alt="♦"> 
                 <div class="rot">`;
                 break;
             default:
@@ -457,13 +457,13 @@ function sortByvalue(_x: karten, _y: karten): number { /* die values der Karten 
     let value_x: number = _x.value; /* die Variablen werden definiert */
     let value_y: number = _y.value;
 
-    if (value_x < value_y) return -1; /* wenn a kleiner ist als b, passiert nichts.*/
-    if (value_x > value_y) return 1; /* wenn a größer ist als b, dann wird a um eine Stelle verschoben */
-    if (value_x == value_y) return 0; /* wenn a und b gleichwertig sind, passiert nichts */
+    if (value_x < value_y) return -1; 
+    if (value_x > value_y) return 1; 
+    if (value_x == value_y) return 0; 
 }
 
 function sortBybild(_x: karten, _y: karten): number { /* die Bilder der Karten werden miteinander verglichen */
-    let bild_x: number = _x.value; /* die Variablen werden definiert */
+    let bild_x: number = _x.value;
     let bild_y: number = _y.value;
 
     if (bild_x < bild_y) return -1; 

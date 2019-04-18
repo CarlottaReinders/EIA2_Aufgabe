@@ -1,69 +1,50 @@
-@charset "utf-8";
+body {
+    background-color: #1e4e1a85;
+}
 
-body {background-color: rgb(91, 104, 93)}
 
 
-.board {
-    background-color: #a7815f;
-    float: left;
-    padding: 2em 0em;
-    margin: 1em;
-    width: 90%;
-    border-color: #a7815fc9;
-    border-style: double;
-    border-width: 0.5em;
-    border-radius: 2em;
-    display: flex;
-    justify-content: center;
+.cards {
+    border: black solid 3px;
+    width: 160px;
+    height: 224px;
+    margin: 25px;
+    font-weight: bold;
+    font-size: 5rem;
+    display: inline-block;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.cards * {
+    pointer-events: none;
+    background-color: #ffffff;
 }
 
 .rot{
-    color:red;
+    color: red;
 }
 
-.pile {
-    background-color: #ffffff;
-    padding: 6em 3em;
-    margin: 2em 25em;
-    width: 2em;
-    border-color: black;
-    border-style: dashed;
-    border-width: 0.5em;
-    border-radius: 1em;
+.schwarz{
+    color: black;
 }
 
-.cards {
-    background-color: #ffffff;
-    height: 150px;
-    margin: 2em;
-    width: 110px;
-    border-color: black;
-    border-style: solid;
-    border-width: 0.5em;
-    border-radius: 1em;
-}
-
-div {
-    display: flex;
-    flex-direction: row;
-}
-
-.cards div {
-    flex-direction: none;
-}
-
-.button {
-    background-color: #ffffff;
-    border: none;
-    color: #000000;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  }
-
-.symbol {
-    height: 50px;
+.symbol{
+    height: 40px;
     margin: 25px 25px 0px 25px;
+}
+
+.kartenrückseite{
+    width: 160px;
+    height: 224px;
+    margin: 0px;
+}
+
+#Stapel {
+    margin-bottom: 70px;
+}
+
+#Deck {
+    width: 160px;
+    height: 224px;
 }

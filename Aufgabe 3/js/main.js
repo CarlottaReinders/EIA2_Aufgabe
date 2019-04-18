@@ -205,13 +205,13 @@ function ablagestapelGenerieren() {
             write += "<img src=\"img/herz.jpeg\" class=\"symbol\" alt=\"\u2665\">\n                <div class=\"rot\">";
             break;
         case 2:
-            write += "<img src=\"img/kreuz.jpeg\" class=\"symbol\" alt=\"\u2663\" \n                <div class=\"schwarz\">";
+            write += "<img src=\"img/kreuz.jpeg\" class=\"symbol\" alt=\"\u2663\"> \n                <div class=\"schwarz\">";
             break;
         case 3:
-            write += "<img src=\"img/pik.jpeg\" class=\"symbol\" alt=\"\u2660\"\n                <div class=\"schwarz\">";
+            write += "<img src=\"img/pik.jpeg\" class=\"symbol\" alt=\"\u2660\">\n                <div class=\"schwarz\">";
             break;
         case 4:
-            write += "<img src=\"img/karo.jpeg\" class=\"symbol\" alt=\"\u2666\" \n                <div class=\"rot\">";
+            write += "<img src=\"img/karo.jpeg\" class=\"symbol\" alt=\"\u2666\">\n                <div class=\"rot\">";
             break;
         default:
             console.log("Bild konnte nicht geladen werden");
@@ -265,13 +265,13 @@ function handkarten() {
                 write += "<img src=\"img/herz.jpeg\" class=\"symbol\" alt=\"\u2665\">\n                <div class=\"rot\">";
                 break;
             case 2:
-                write += "<img src=\"img/kreuz.jpeg\" class=\"symbol\" alt=\"\u2663\" \n                <div class=\"schwarz\">";
+                write += "<img src=\"img/kreuz.jpeg\" class=\"symbol\" alt=\"\u2663\"> \n                <div class=\"schwarz\">";
                 break;
             case 3:
-                write += "<img src=\"img/pik.jpeg\" class=\"symbol\" alt=\"\u2660\"\n                <div class=\"schwarz\">";
+                write += "<img src=\"img/pik.jpeg\" class=\"symbol\" alt=\"\u2660\">\n                <div class=\"schwarz\">";
                 break;
             case 4:
-                write += "<img src=\"img/karo.jpeg\" class=\"symbol\" alt=\"\u2666\" \n                <div class=\"rot\">";
+                write += "<img src=\"img/karo.jpeg\" class=\"symbol\" alt=\"\u2666\"> \n                <div class=\"rot\">";
                 break;
             default:
                 console.log("Bild konnte nicht geladen werden");
@@ -337,14 +337,14 @@ function sortByvalue(_x, _y) {
     var value_x = _x.value; /* die Variablen werden definiert */
     var value_y = _y.value;
     if (value_x < value_y)
-        return -1; /* wenn a kleiner ist als b, passiert nichts.*/
+        return -1;
     if (value_x > value_y)
-        return 1; /* wenn a größer ist als b, dann wird a um eine Stelle verschoben */
+        return 1;
     if (value_x == value_y)
-        return 0; /* wenn a und b gleichwertig sind, passiert nichts */
+        return 0;
 }
 function sortBybild(_x, _y) {
-    var bild_x = _x.value; /* die Variablen werden definiert */
+    var bild_x = _x.value;
     var bild_y = _y.value;
     if (bild_x < bild_y)
         return -1;
