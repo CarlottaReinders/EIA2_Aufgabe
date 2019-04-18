@@ -1,4 +1,4 @@
-/* 1. Interface Karten */
+//Hello world
 var h7 = {
     bild: 1,
     value: 7,

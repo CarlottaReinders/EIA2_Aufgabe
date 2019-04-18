@@ -1,28 +1,5 @@
-/* 1. Interface Karten */
 
-/* 2. Arrays */
-
-/* 3. Funktion Spielstart */
-
-/* 4. Funktion zum Karte ziehen */
-
-/* 5. Funktion um den Ablagestapel zu generieren */
-
-/* 6. Funktion um den Nachziehstapel zu generieren */
-
-/* 7. Funktion um die Handkarten zu generieren */
-
-/* 8. Funktion zum legen einer Karte */
-
-/* 9. Funktionen zum sortieren der Karten */
-
-/* 10. Funktion zum Karten ziehen beim Drücken der Leertaste */
-
-/* 11. Funktion zum initialisieren */
-
-/* 12. Eventlisteners */
-
-
+//Hello world
 
 
 
