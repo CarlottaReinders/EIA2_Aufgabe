@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Aufgabe 4</title>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <script src="js/main.js"></script>
+    </head>
+
+<!--      
+    Aufgabe: (Aufgabe 4 DynHTML: Eisdealer) Name: (Carlotta Reinders) Matrikel: (261443)
+    Datum: (18.04.2019) Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert. 
+-->
+
+
+<header>
+    <p> Eisdealer </p>
+</header>
+
+
+<body>
+
+<div class="inhalte">
+
+<li> <i class="fas fa-cart-arrow-down"> </i> <span id="Cart">0</span></li>
+
+<fieldset class="boxen" name="ThisProductArray">
+    <p>Eissorten</p>
+    <span><input type="checkbox" value="1" onclick="totalPrice()">Vanille
+    <input type="number" min="0" max="15" class="wievieleKugeln"> </span>
+
+    <span><input type="checkbox" value="1" onclick="totalPrice()">Schokolade
+    <input type="number" min="0" max="15" class="wievieleKugeln"> </span> 
+
+    <span><input type="checkbox" value="1" onclick="totalPrice()">Stracciatella
+    <input type="number" min="0" max="15" class="wievieleKugeln"> </span>
+
+    <span><input type="checkbox" value="1" onclick="totalPrice()">Cookies
+    <input type="number" min="0" max="15" class="wievieleKugeln"> </span>
+
+    <span><input type="checkbox" value="1" onclick="totalPrice()">Zitrone
+    <input type="number" min="0" max="15" class="wievieleKugeln"> </span>
+
+    <span><input type="checkbox" value="1" onclick="totalPrice()">Erdbeere
+    <input type="number" min="0" max="15" class="wievieleKugeln"> </span>
+
+    <span><input type="checkbox" value="1" onclick="totalPrice()">Joghurt
+    <input type="number" min="0" max="15" class="wievieleKugeln"> </span>
+
+    <span><input type="checkbox" value="1" onclick="totalPrice()">Mango
+    <input type="number" min="0" max="15" class="wievieleKugeln"> </span>
+
+    <span><input type="checkbox" value="1" onclick="AddPriceToSum()">Haselnuss
+    <input type="number" min="0" max="15" class="wievieleKugeln"> </span>
+</fieldset>
+
+<fieldset class="boxen">
+    <p>Toppings</p>
+    <span><input type="checkbox" value="1" onclick="totalPrice()">Streusel Vollmilch </span>
+    <span><input type="checkbox" value="1" onclick="totalPrice()">Streusel weiß </span>
+    <span><input type="checkbox" value="1" onclick="totalPrice()">Streusel zartbitter </span>
+    <span><input type="checkbox" value="1" onclick="totalPrice()">Schokosoße </span>
+    <span><input type="checkbox" value="1" onclick="totalPrice()">Erdbeersoße </span>
+    <span><input type="checkbox" value="1" onclick="totalPrice()">Sahne </span>
+    <span><input type="checkbox" value="1" onclick="totalPrice()">Raspelschokolade weiß </span>
+    <span><input type="checkbox" value="1" onclick="totalPrice()">Raspelschokolade Vollmilch </span>
+</fieldset>
+
+<fieldset class="boxen">
+    <p>Waffel oder Becher?</p>
+    <span><input type="radio" name="Radiogroup">Waffel </span>
+    <span><input type="radio" name="Radiogroup">Becher </span>
+</fieldset>
+
+<fieldset>
+    <p>Preis</p>
+    <div id="price">0 €</div>
+</fieldset>
+
+<fieldset class="boxen">
+    <p>Lieferoptionen</p>
+    <span><input type="radio" name="Lieferoption">Standardversand </span>
+    <span><input type="radio" name="Lieferoption">Expressversand </span>
+    <span><input type="radio" name="Lieferoption">Selbstabholung </span>
+</fieldset>
+
+<fieldset>
+    <p>Anmerkungen zur Bestellung</p>
+    <input type="text">
+</fieldset>
+
+<fieldset class="boxen">
+    <p>Versandinformationen</p>
+    <span class="versandinfo">Name <input type="text"> </span>
+    <span class="versandinfo">Telefonnummer (optional) <input type="text"> </span>
+    <span class="versandinfo">Straße <input type="text"> </span>
+    <span class="versandinfo">Hausnummer <input type="text"> </span>
+    <span class="versandinfo">Postleitzahl <input type="text"> </span>
+    <span class="versandinfo">Stadt <input type="text"> </span>
+    <span class="versandinfo">Land <input type="text"> </span>
+</fieldset>
+
+<fieldset>
+    <button onclick="bestellen">Bestellung aufgeben</button>
+</fieldset>
+
+</div>
+
+</body>
