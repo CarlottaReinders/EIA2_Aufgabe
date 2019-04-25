@@ -22,7 +22,8 @@ document.getElementById("fertigeBestellung").addEventListener("click", fertigeBe
         let bestellungsOptionen: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
 
         for (let i: number = 0; i < bestellungsOptionen.length; i++) {
-            if (bestellungsOptionen[i].checked == true || bestellungsOptionen[i].name == "Schokolade" && Number(bestellungsOptionen[i].value) > 0
+            if (bestellungsOptionen[i].checked == true 
+            || bestellungsOptionen[i].name == "Schokolade" && Number(bestellungsOptionen[i].value) > 0
             || bestellungsOptionen[i].name == "Vanille" && Number(bestellungsOptionen[i].value) > 0
             || bestellungsOptionen[i].name == "Schokolade" && Number(bestellungsOptionen[i].value) > 0
             || bestellungsOptionen[i].name == "Erdbeere" && Number(bestellungsOptionen[i].value) > 0
@@ -34,14 +35,14 @@ document.getElementById("fertigeBestellung").addEventListener("click", fertigeBe
                 orderSum += orderPrice;
             console.log(orderSum);}
         }
-        document.getElementById("bestellwert").innerHTML = `Bestellzusammenfassung:  ${orderSum} €`;
+        document.getElementById("price").innerHTML = `Bestellzusammenfassung:  ${orderSum} €`;
     }
     
     
     function bestellung(_event: Event): void { 
         let bestellungsOptionen: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         document.getElementById("sorten").innerHTML = "Sorten: ";
-        document.getElementById("toppings").innerHTML = "Toppingss: ";
+        document.getElementById("toppings").innerHTML = "Toppings: ";
         document.getElementById("waffelOderBecher").innerHTML = "Behälter: ";
         document.getElementById("lieferoptionen").innerHTML = "Versandart: ";
         document.getElementById("versandinformationen").innerHTML = "Versandinformationen: ";
@@ -59,17 +60,17 @@ document.getElementById("fertigeBestellung").addEventListener("click", fertigeBe
                 || bestellungsOptionen[i].name == "Raspelschokolade Vollmilch" ) {
                     let target = document.createElement("ul");
                     target.innerHTML = `${bestellungsOptionen[i].alt}, `;
-                    document.getElementById("toppingauswahl").appendChild(target);
+                    document.getElementById("toppings").appendChild(target);
 
                 } else if (bestellungsOptionen[i].name == "container") {
                     let target =document.createElement("ul");
                     target.innerHTML=`${bestellungsOptionen[i].alt}`;
-                            document.getElementById("becherOderWaffel").appendChild(target);
+                            document.getElementById("waffelOderBecher").appendChild(target);
 
                 } else if (bestellungsOptionen[i].name == "shipping") {
                     let target =document.createElement("ul");
                     target.innerHTML=`${bestellungsOptionen[i].alt}`;
-                            document.getElementById("versandoptionen").appendChild(target);
+                            document.getElementById("lieferoptionen").appendChild(target);
                 }
             }
 

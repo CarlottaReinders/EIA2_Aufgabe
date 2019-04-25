@@ -46,20 +46,20 @@
 
     <fieldset id="toppings" class="boxen">
         <legend>Toppings</legend>
-        <input type="checkbox" name="Streusel Vollmilch" value="1">Streusel Vollmilch
-        <input type="checkbox" name="Streusel weiß" value="1">Streusel weiß 
-        <input type="checkbox" name="Streusel zartbitter" value="1">Streusel zartbitter
-        <input type="checkbox" name="Schokosoße " value="1">Schokosoße 
-        <input type="checkbox" name="Erdbeersoße" value="1">Erdbeersoße 
-        <input type="checkbox" name="Sahne" value="1">Sahne 
-        <input type="checkbox" name="Raspelschokolade weiß" value="1">Raspelschokolade weiß 
-        <input type="checkbox" name="Raspelschokolade Vollmilch" value="1">Raspelschokolade Vollmilch
+        <input type="checkbox" name="Streusel Vollmilch" id="topping1" value="1">Streusel Vollmilch
+        <input type="checkbox" name="Streusel weiß" id="topping2" value="1">Streusel weiß 
+        <input type="checkbox" name="Streusel zartbitter" id="topping3" value="1">Streusel zartbitter
+        <input type="checkbox" name="Schokosoße " id="topping4"value="1">Schokosoße 
+        <input type="checkbox" name="Erdbeersoße" id="topping5"value="1">Erdbeersoße 
+        <input type="checkbox" name="Sahne" id="topping6"value="1">Sahne 
+        <input type="checkbox" name="Raspelschokolade weiß" id="topping7" value="1">Raspelschokolade weiß 
+        <input type="checkbox" name="Raspelschokolade Vollmilch" id="topping8" value="1">Raspelschokolade Vollmilch
     </fieldset>
 
     <fieldset id="waffelOderBecher" class="boxen">
         <legend>Waffel oder Becher?</legend>
-        <input type="radio" name="Radiogroup">Waffel 
-        <input type="radio" name="Radiogroup">Becher
+        <input type="radio" name="container" id="waffel">Waffel 
+        <input type="radio" name="container" id="becher">Becher
     </fieldset>
 
     <fieldset class="boxen">
@@ -69,9 +69,9 @@
 
     <fieldset id="lieferoptionen" class="boxen">
         <legend>Lieferoptionen</legend>
-        <input type="radio" name="standard" value="0">Standardversand 
-        <input type="radio" name="express" value="0">Expressversand
-        <input type="radio" name="selbst" value="0">Selbstabholung 
+        <input type="radio" name="shipping" id="standard" value="0">Standardversand 
+        <input type="radio" name="shipping" id="express" value="0">Expressversand
+        <input type="radio" name="shipping" id="selbst" value="0">Selbstabholung 
     </fieldset>
 
     <fieldset>
@@ -81,22 +81,23 @@
 
     <fieldset id="versandinformationen" class="boxen">
         <legend>Versandinformationen</legend>
-        Name <input type="text" for="name">
-        Telefonnummer (optional) <input type="text" for="telefonnummer"> 
-        Straße <input type="text" for="straße">  
-        Hausnummer <input type="text" for="hausnummer"> 
-        Postleitzahl <input type="text" for="postleitzahl"> 
-        Stadt <input type="text" for="stadt"> 
-        Land <input type="text" for="land"> 
+        Name <input type="text" for="name" id="name">
+        Telefonnummer (optional) <input type="text" for="telefonnummer" id="telefonnummer"> 
+        Straße <input type="text" for="straße" id="straße">  
+        Hausnummer <input type="text" for="hausnummer" id="hausnummer"> 
+        Postleitzahl <input type="text" for="postleitzahl" id="postleitzahl"> 
+        Stadt <input type="text" for="stadt" id="stadt"> 
+        Land <input type="text" for="land" id="land"> 
     </fieldset>
 
     <fieldset class="boxen">
         <legend>Bestellungszusammenfassung</legend>
         <div id="zusammenfassung"> 
-            <span id="eissorten"> </span>
-            <span id="toppingauswahl"> </span>
-            <span id="becherOderWaffel"> </span>
-            <span id="versandoptionen"> </span>
+            <span id="sorten"> </span>
+            <span id="toppings"> </span>
+            <span id="waffelOderBecher"> </span>
+            <span id="lieferoptionen"> </span>
+            <span id="versandinformationen"> </span>
 
         </div>
         <button id="fertigeBestellung"> Bestellung überprüfen </button>

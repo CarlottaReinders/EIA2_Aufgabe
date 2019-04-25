@@ -17,7 +17,8 @@ function bestellwert(_event) {
     var orderPrice = 0;
     var bestellungsOptionen = document.getElementsByTagName("input");
     for (var i = 0; i < bestellungsOptionen.length; i++) {
-        if (bestellungsOptionen[i].checked == true || bestellungsOptionen[i].name == "Schokolade" && Number(bestellungsOptionen[i].value) > 0
+        if (bestellungsOptionen[i].checked == true
+            || bestellungsOptionen[i].name == "Schokolade" && Number(bestellungsOptionen[i].value) > 0
             || bestellungsOptionen[i].name == "Vanille" && Number(bestellungsOptionen[i].value) > 0
             || bestellungsOptionen[i].name == "Schokolade" && Number(bestellungsOptionen[i].value) > 0
             || bestellungsOptionen[i].name == "Erdbeere" && Number(bestellungsOptionen[i].value) > 0
@@ -30,12 +31,12 @@ function bestellwert(_event) {
             console.log(orderSum);
         }
     }
-    document.getElementById("bestellwert").innerHTML = "Bestellzusammenfassung:  " + orderSum + " \u20AC";
+    document.getElementById("price").innerHTML = "Bestellzusammenfassung:  " + orderSum + " \u20AC";
 }
 function bestellung(_event) {
     var bestellungsOptionen = document.getElementsByTagName("input");
     document.getElementById("sorten").innerHTML = "Sorten: ";
-    document.getElementById("toppings").innerHTML = "Toppingss: ";
+    document.getElementById("toppings").innerHTML = "Toppings: ";
     document.getElementById("waffelOderBecher").innerHTML = "Behälter: ";
     document.getElementById("lieferoptionen").innerHTML = "Versandart: ";
     document.getElementById("versandinformationen").innerHTML = "Versandinformationen: ";
@@ -51,17 +52,17 @@ function bestellung(_event) {
                 || bestellungsOptionen[i].name == "Raspelschokolade Vollmilch") {
                 var target = document.createElement("ul");
                 target.innerHTML = bestellungsOptionen[i].alt + ", ";
-                document.getElementById("toppingauswahl").appendChild(target);
+                document.getElementById("toppings").appendChild(target);
             }
             else if (bestellungsOptionen[i].name == "container") {
                 var target = document.createElement("ul");
                 target.innerHTML = "" + bestellungsOptionen[i].alt;
-                document.getElementById("becherOderWaffel").appendChild(target);
+                document.getElementById("waffelOderBecher").appendChild(target);
             }
             else if (bestellungsOptionen[i].name == "shipping") {
                 var target = document.createElement("ul");
                 target.innerHTML = "" + bestellungsOptionen[i].alt;
-                document.getElementById("versandoptionen").appendChild(target);
+                document.getElementById("lieferoptionen").appendChild(target);
             }
         }
         if (bestellungsOptionen[i].name == "Vanille" && Number(bestellungsOptionen[i].value) > 0
