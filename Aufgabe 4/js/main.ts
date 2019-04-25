@@ -1,149 +1,119 @@
-// 1. Interface Eissorten & Toppingsorten
-// 2. Definitionen von Variablen
-// 3. Funktion zur Berechnung des Gesamtpreises
-// 4. Funktion zum Hinzufügen des Preises
-// 5. Funktion zum Aktualisieren der Bestellung
-// 6. Funktion zum prüfen der Bestellung
+namespace EisdDealer {
 
-
-// 1. Interface Eissorten & Toppingsorten
-
-interface options {
-    name: string,
-    price: number;
-}
-let sorte1: options = {
-    name: "Vanille",
-    price: 0.8,
-}
-let sorte2: options = {
-    name: "Schokolade",
-    price: 0.8,
-}
-let sorte3: options = {
-    name: "Stracciatella",
-    price: 0.8,
-}
-let sorte4: options = {
-    name: "Cookies",
-    price: 0.8,
-}
-let sorte5: options = {
-    name: "Zitrone",
-    price: 0.8,
-}
-let sorte6: options = {
-    name: "Erdbeere",
-    price: 0.8,
-}
-let sorte7: options = {
-    name: "Joghurt",
-    price: 0.8,
-}
-let sorte8: options = {
-    name: "Mango",
-    price: 0.8,
-}
-let sorte9: options = {
-    name: "Haselnuss",
-    price: 0.8,
-}
-let topping1: options = {
-    name: "Streusel Vollmilch",
-    price: 0.6,
-}
-let topping2: options = {
-    name: "Streusel weiße Schokolade",
-    price: 0.6,
-}
-let topping3: options = {
-    name: "Streusel zartbitter",
-    price: 0.6,
-}
-let topping4: options = {
-    name: "Schokosoße",
-    price: 1.0,
-}
-let topping5: options = {
-    name: "Erdbeersoße",
-    price: 1.0,
-}
-let topping6: options = {
-    name: "Sahne",
-    price: 1.0,
-}
-let topping7: options = {
-    name: "Raspelschokolade weiß",
-    price: 0.8,
-}
-let topping8: options = {
-    name: "Raspelschokolade Vollmilch",
-    price: 0.8,
+window.addEventListener("load", init);
+document.getElementById("fertigeBestellung").addEventListener("click", fertigeBestellung);
 }
 
-let eissorten:options [] = [sorte1, sorte2, sorte3, sorte4, sorte5, sorte6, sorte7, sorte8, sorte9, topping1, topping2, topping3, topping4, topping5, topping6, topping7]
+    function init(_event: Event): void {
+        console.log("Init");
 
+        let fieldsets: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
 
-
-// 2. Definitionen von Variablen
-
-let price:number = 0;
-
-let order:options[]=[];
-
-
-// 3. Funktion zum Berechnen des Gesamtpreises
-
-function totalPrice(theproduct:options): void{
-
-    order.push(theproduct);
-    addPrice();
-    updateOrder();
-}
-
-
-// 4. Funktion zum Hinzufügen des Preises
-function addPrice():void { 
-    let i:number = 0;
-    let Summe:number = 0;
-
-    for(i=0;i<order.length;i++) {
-        Summe=Summe + order[i].price;
+        for (let i: number = 0; i < fieldsets.length; i++) {
+            let fieldset: HTMLFieldSetElement = fieldsets[i];
+            fieldset.addEventListener("change", bestellung);
+            fieldset.addEventListener("change", bestellwert);
+            console.log(fieldset);
+        }
     }
 
-    document.getElementById("price").innerHTML = ""+ Summe + " €";
-    console.log("The total Price is ",Summe," €.");
-    console.log(order);    
-}  
+    function bestellwert(_event: Event): void { 
+        let orderSum: number = 0;
+        let orderPrice: number = 0;
+        let bestellungsOptionen: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+        for (let i: number = 0; i < bestellungsOptionen.length; i++) {
+            if (bestellungsOptionen[i].checked == true || bestellungsOptionen[i].name == "Schokolade" && Number(bestellungsOptionen[i].value) > 0
+            || bestellungsOptionen[i].name == "Vanille" && Number(bestellungsOptionen[i].value) > 0
+            || bestellungsOptionen[i].name == "Schokolade" && Number(bestellungsOptionen[i].value) > 0
+            || bestellungsOptionen[i].name == "Erdbeere" && Number(bestellungsOptionen[i].value) > 0
+            || bestellungsOptionen[i].name == "Waldmeister" && Number(bestellungsOptionen[i].value) > 0
+            || bestellungsOptionen[i].name == "Cookies" && Number(bestellungsOptionen[i].value) > 0
+            || bestellungsOptionen[i].name == "Joghurt" && Number(bestellungsOptionen[i].value) > 0
+            || bestellungsOptionen[i].name == "Banane" && Number(bestellungsOptionen[i].value) > 0 ){
+                orderPrice = Number(bestellungsOptionen[i].value);
+                orderSum += orderPrice;
+            console.log(orderSum);}
+        }
+        document.getElementById("bestellwert").innerHTML = `Bestellzusammenfassung:  ${orderSum} €`;
+    }
+    
+    
+    function bestellung(_event: Event): void { 
+        let bestellungsOptionen: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+        document.getElementById("sorten").innerHTML = "Sorten: ";
+        document.getElementById("toppings").innerHTML = "Toppingss: ";
+        document.getElementById("waffelOderBecher").innerHTML = "Behälter: ";
+        document.getElementById("lieferoptionen").innerHTML = "Versandart: ";
+        document.getElementById("versandinformationen").innerHTML = "Versandinformationen: ";
 
 
-// 5. Funktion zum Aktualisieren der Bestellung
-function updateOrder():void {
-    document.getElementById("Cart").innerHTML = ""+order.length;
-}
+        for (let i: number = 0; i < bestellungsOptionen.length; i++) {
+            if (bestellungsOptionen[i].checked == true) {
+                if (bestellungsOptionen[i].name == "Streusel Vollmilch" 
+                || bestellungsOptionen[i].name == "Streusel weiß"
+                || bestellungsOptionen[i].name == "Streusel zartbitter"
+                || bestellungsOptionen[i].name == "Schokosoße"
+                || bestellungsOptionen[i].name == "Erdbeersoße" 
+                || bestellungsOptionen[i].name == "Sahne"
+                || bestellungsOptionen[i].name == "Raspelschokolade weiß" 
+                || bestellungsOptionen[i].name == "Raspelschokolade Vollmilch" ) {
+                    let target = document.createElement("ul");
+                    target.innerHTML = `${bestellungsOptionen[i].alt}, `;
+                    document.getElementById("toppingauswahl").appendChild(target);
+
+                } else if (bestellungsOptionen[i].name == "container") {
+                    let target =document.createElement("ul");
+                    target.innerHTML=`${bestellungsOptionen[i].alt}`;
+                            document.getElementById("becherOderWaffel").appendChild(target);
+
+                } else if (bestellungsOptionen[i].name == "shipping") {
+                    let target =document.createElement("ul");
+                    target.innerHTML=`${bestellungsOptionen[i].alt}`;
+                            document.getElementById("versandoptionen").appendChild(target);
+                }
+            }
+
+            if (bestellungsOptionen[i].name == "Schokolade" && Number(bestellungsOptionen[i].value) > 0
+            || bestellungsOptionen[i].name == "Vanille" && Number(bestellungsOptionen[i].value) > 0
+            || bestellungsOptionen[i].name == "Erdbeere" && Number(bestellungsOptionen[i].value) > 0
+            || bestellungsOptionen[i].name == "Zitrone" && Number(bestellungsOptionen[i].value) > 0
+            || bestellungsOptionen[i].name == "Joghurt" && Number(bestellungsOptionen[i].value) > 0
+            || bestellungsOptionen[i].name == "Haselnuss" && Number(bestellungsOptionen[i].value) > 0 ){
+
+                let target = document.createElement("li");
+                target.innerHTML = `${bestellungsOptionen[i].value} Kugel (n) ${bestellungsOptionen[i].name}, `;
+                document.getElementById("eissorten").appendChild(target);
+            }
+        }
+    }
+
+    function fertigeBestellung(): void {
+
+        let deliveryStatus: number = 0;
+        let standardversand: HTMLInputElement = <HTMLInputElement>document.getElementById("standard");
+        let expressversand: HTMLInputElement = <HTMLInputElement>document.getElementById("express");
+        let selbstabholung: HTMLInputElement = <HTMLInputElement>document.getElementById("selbst");
+        let name: HTMLInputElement = <HTMLInputElement>document.getElementById("name");
+        let telefonnummer: HTMLInputElement = <HTMLInputElement>document.getElementById("telefonnummer");
+        let straße: HTMLInputElement = <HTMLInputElement>document.getElementById("straße");
+        let hausnummer: HTMLInputElement = <HTMLInputElement>document.getElementById("hausnummer");
+        let postleitzahl: HTMLInputElement = <HTMLInputElement>document.getElementById("postleitzahl");
+        let stadt: HTMLInputElement = <HTMLInputElement>document.getElementById("stadt");
+        let land: HTMLInputElement = <HTMLInputElement>document.getElementById("land");
 
 
-function renderProducts (ThisProductArray :options[]): void{ 
-    let i :number=0;
+        if (standardversand.checked == true || expressversand.checked == true || selbstabholung.checked == true) {
+            deliveryStatus = 1;
+        }
 
-    while(i<ThisProductArray.length){ 
-        writeHtml(ThisProductArray[i],i); 
-        console.log(ThisProductArray[i].name);
-        i++;
-    } 
-}
-
-function init(){ 
-    renderProducts(order); 
-}
-document.addEventListener('DOMContentLoaded', init); 
-
-// 6. Funktion zum prüfen der Bestellung
-
-function bestellungPrüfen():void {
-    console.log("Die Bestellung wurde geprüft");
-}
-
-function bestellungErfolgt():void {
-    console.log("Die Bestellung wurde durchgeführt");
-}
+        if (name.value == "" 
+        || telefonnummer.value == ""
+        || straße.value == "" 
+        || hausnummer.value == "" 
+        || postleitzahl.value == ""
+        || stadt.value == "" 
+        || land.value == "" 
+        || deliveryStatus == 0) {
+            alert("Die Felder müssen ausgefüllt werden");
+        }
+    }

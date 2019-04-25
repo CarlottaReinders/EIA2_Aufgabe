@@ -8,9 +8,6 @@
     header {
         background-color: #f0d9579d;
         margin: 1em;
-    }
-    
-    header p {
         font-family: monospace;
         font-size: 20px;
         font-style: oblique;
@@ -18,7 +15,7 @@
         display: flex;
         justify-content: center;
     }
-    
+
     .boxen {
         display: grid;
         float: left;
