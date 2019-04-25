@@ -5,7 +5,6 @@ document.getElementById("fertigeBestellung").addEventListener("click", fertigeBe
 }
 
     function init(_event: Event): void {
-        console.log("Init");
 
         let fieldsets: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
 
@@ -21,6 +20,7 @@ document.getElementById("fertigeBestellung").addEventListener("click", fertigeBe
         let orderSum: number = 0;
         let orderPrice: number = 0;
         let bestellungsOptionen: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+
         for (let i: number = 0; i < bestellungsOptionen.length; i++) {
             if (bestellungsOptionen[i].checked == true || bestellungsOptionen[i].name == "Schokolade" && Number(bestellungsOptionen[i].value) > 0
             || bestellungsOptionen[i].name == "Vanille" && Number(bestellungsOptionen[i].value) > 0
@@ -73,12 +73,13 @@ document.getElementById("fertigeBestellung").addEventListener("click", fertigeBe
                 }
             }
 
-            if (bestellungsOptionen[i].name == "Schokolade" && Number(bestellungsOptionen[i].value) > 0
-            || bestellungsOptionen[i].name == "Vanille" && Number(bestellungsOptionen[i].value) > 0
+            if (bestellungsOptionen[i].name == "Vanille" && Number(bestellungsOptionen[i].value) > 0
+            || bestellungsOptionen[i].name == "Schokolade" && Number(bestellungsOptionen[i].value) > 0
             || bestellungsOptionen[i].name == "Erdbeere" && Number(bestellungsOptionen[i].value) > 0
-            || bestellungsOptionen[i].name == "Zitrone" && Number(bestellungsOptionen[i].value) > 0
-            || bestellungsOptionen[i].name == "Joghurt" && Number(bestellungsOptionen[i].value) > 0
-            || bestellungsOptionen[i].name == "Haselnuss" && Number(bestellungsOptionen[i].value) > 0 ){
+            || bestellungsOptionen[i].name == "Waldmeister" && Number(bestellungsOptionen[i].value) > 0
+            || bestellungsOptionen[i].name == "Cookies" && Number(bestellungsOptionen[i].value) > 0
+            || bestellungsOptionen[i].name == "Joghurt" && Number(bestellungsOptionen[i].value) > 0 
+            || bestellungsOptionen[i].name == "Banane" && Number(bestellungsOptionen[i].value) > 0 ){
 
                 let target = document.createElement("li");
                 target.innerHTML = `${bestellungsOptionen[i].value} Kugel (n) ${bestellungsOptionen[i].name}, `;

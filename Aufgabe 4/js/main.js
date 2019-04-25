@@ -4,7 +4,6 @@ var EisdDealer;
     document.getElementById("fertigeBestellung").addEventListener("click", fertigeBestellung);
 })(EisdDealer || (EisdDealer = {}));
 function init(_event) {
-    console.log("Init");
     var fieldsets = document.getElementsByTagName("fieldset");
     for (var i = 0; i < fieldsets.length; i++) {
         var fieldset = fieldsets[i];
@@ -65,12 +64,13 @@ function bestellung(_event) {
                 document.getElementById("versandoptionen").appendChild(target);
             }
         }
-        if (bestellungsOptionen[i].name == "Schokolade" && Number(bestellungsOptionen[i].value) > 0
-            || bestellungsOptionen[i].name == "Vanille" && Number(bestellungsOptionen[i].value) > 0
+        if (bestellungsOptionen[i].name == "Vanille" && Number(bestellungsOptionen[i].value) > 0
+            || bestellungsOptionen[i].name == "Schokolade" && Number(bestellungsOptionen[i].value) > 0
             || bestellungsOptionen[i].name == "Erdbeere" && Number(bestellungsOptionen[i].value) > 0
-            || bestellungsOptionen[i].name == "Zitrone" && Number(bestellungsOptionen[i].value) > 0
+            || bestellungsOptionen[i].name == "Waldmeister" && Number(bestellungsOptionen[i].value) > 0
+            || bestellungsOptionen[i].name == "Cookies" && Number(bestellungsOptionen[i].value) > 0
             || bestellungsOptionen[i].name == "Joghurt" && Number(bestellungsOptionen[i].value) > 0
-            || bestellungsOptionen[i].name == "Haselnuss" && Number(bestellungsOptionen[i].value) > 0) {
+            || bestellungsOptionen[i].name == "Banane" && Number(bestellungsOptionen[i].value) > 0) {
             var target = document.createElement("li");
             target.innerHTML = bestellungsOptionen[i].value + " Kugel (n) " + bestellungsOptionen[i].name + ", ";
             document.getElementById("eissorten").appendChild(target);

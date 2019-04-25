@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Aufgabe 4</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <script src="js/main.js"></script>
+    <script src="js/main.js"> </script>
 </head>
 
 <!--      
@@ -21,25 +21,25 @@
 
     <fieldset id="sorten" class="boxen">
         <legend>Eissorten</legend>
-        <input type="number" name="stepper" min="0" max="15" value="0" price="1">
+        <input type="number" name="stepper" step="1" min="0" max="15" value="0">
         <label for="Vanille">Vanille</label>
 
-        <input type="number" name="stepper" min="0" max="15" value="0" price="1">
+        <input type="number" name="stepper" step="1" min="0" max="15" value="0">
         <label for="Schokolade">Schokolade</label>
- 
-        <input type="number" name="stepper" min="0" max="15" value="0" price="1">
+    
+        <input type="number" name="stepper" step="1" min="0" max="15" value="0">
         <label for="Erdbeere">Erdbeere</label>
 
-        <input type="number" name="stepper" min="0" max="15" value="0" price="1">
+        <input type="number" name="stepper" step="1" min="0" max="15" value="0">
         <label for="Waldmeister">Waldmeister</label>
 
-        <input type="number" name="stepper" min="0" max="15" value="0" price="1">
+        <input type="number" name="stepper" step="1" min="0" max="15" value="0">
         <label for="Cookies">Cookies</label>
 
-        <input type="number" name="stepper" min="0" max="15" value="0" price="1">
+        <input type="number" name="stepper" step="1" min="0" max="15" value="0">
         <label for="Joghurt">Joghurt</label>
 
-        <input type="number" name="stepper" min="0" max="15" value="0" price="1"> 
+        <input type="number" name="stepper" step="1" min="0" max="15" value="0"> 
         <label for="Banane">Banane</label>
 
     </fieldset>
@@ -92,14 +92,15 @@
 
     <fieldset class="boxen">
         <legend>Bestellungszusammenfassung</legend>
-        <div id="zuasmmenfassung"> 
+        <div id="zusammenfassung"> 
             <span id="eissorten"> </span>
             <span id="toppingauswahl"> </span>
             <span id="becherOderWaffel"> </span>
             <span id="versandoptionen"> </span>
 
         </div>
-        <button> Bestellung überprüfen </button> 
+        <button id="fertigeBestellung"> Bestellung überprüfen </button>
+
     </fieldset>
 
 </body>
