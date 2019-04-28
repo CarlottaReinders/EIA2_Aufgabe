@@ -1,10 +1,10 @@
 
-namespace EisdDealer {
+namespace EisDealer {
 
-window.addEventListener("load", init);
+    window.addEventListener("DOMContentLoaded", init);
 
     function init(_event: Event): void {
-
+        console.log(eissorten);
         document.getElementById("fertigeBestellung").addEventListener("click", fertigeBestellung);
         console.log(document.getElementById("fertigeBestellung"));
 
@@ -15,7 +15,7 @@ window.addEventListener("load", init);
             fieldset.addEventListener("change", bestellung);
             fieldset.addEventListener("change", bestellwert);
         }
-    }
+    };
     
     function bestellung(_event: Event): void { 
         let bestellungsOptionen: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");

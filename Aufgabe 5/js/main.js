@@ -1,7 +1,8 @@
-var EisdDealer;
-(function (EisdDealer) {
-    window.addEventListener("load", init);
+var EisDealer;
+(function (EisDealer) {
+    window.addEventListener("DOMContentLoaded", init);
     function init(_event) {
+        console.log(EisDealer.eissorten);
         document.getElementById("fertigeBestellung").addEventListener("click", fertigeBestellung);
         console.log(document.getElementById("fertigeBestellung"));
         var fieldsets = document.getElementsByTagName("fieldset");
@@ -11,6 +12,7 @@ var EisdDealer;
             fieldset.addEventListener("change", bestellwert);
         }
     }
+    ;
     function bestellung(_event) {
         var bestellungsOptionen = document.getElementsByTagName("input");
         console.log("war hier");
@@ -105,5 +107,5 @@ var EisdDealer;
             alert("Die Felder müssen ausgefüllt werden");
         }
     }
-})(EisdDealer || (EisdDealer = {}));
+})(EisDealer || (EisDealer = {}));
 //# sourceMappingURL=main.js.map
