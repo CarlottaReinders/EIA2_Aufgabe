@@ -19,7 +19,6 @@ namespace EisDealer {
     
     function bestellung(_event: Event): void { 
         let bestellungsOptionen: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
-        console.log("war hier");
         document.getElementById("endSorten").innerHTML = "Sorten: ";
         document.getElementById("endToppings").innerHTML = "Toppings: ";
         document.getElementById("endWaffelOderBecher").innerHTML = "Behälter: ";
@@ -61,7 +60,6 @@ namespace EisDealer {
             || bestellungsOptionen[i].name == "joghurt" && Number(bestellungsOptionen[i].value) > 0 
             || bestellungsOptionen[i].name == "banane" && Number(bestellungsOptionen[i].value) > 0 ){
 
-                console.log("vanillaja");
                 let target = document.createElement("ul");
                 target.innerHTML = `${bestellungsOptionen[i].value} Kugel(n) ${bestellungsOptionen[i].name}`;
                 document.getElementById("endSorten").appendChild(target);
