@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aufgabe 5</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="js/main.js"> </script>
+    <script src="js/data.js"> </script>
+</head>
+
+<!--      
+    Aufgabe: (Aufgabe 5 DynHTML: Eisdealer reloaded) Name: (Carlotta Reinders) Matrikel: (261443)
+    Datum: (28.04.2019) Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert. 
+-->
+
+<body>
+    <header>
+        <span>Eisdealer</span>
+    </header>
+
+    <fieldset id="sorten" class="boxen">
+        <legend>Eissorten</legend>
+    </fieldset>
+
+    <fieldset id="toppings" class="boxen">
+        <legend>Toppings</legend>
+    </fieldset>
+
+    <fieldset id="waffelOderBecher" class="boxen">
+        <legend>Waffel oder Becher?</legend>
+    </fieldset>
+
+    <fieldset class="boxen">
+        <legend>Preis</legend>
+        <div id="price">0 €</div>
+    </fieldset>
+
+    <fieldset id="lieferoptionen" class="boxen">
+        <legend>Lieferoptionen</legend>
+    </fieldset>
+
+    <fieldset>
+        <legend>Anmerkungen zur Bestellung</legend>
+        <input type="text">
+    </fieldset>
+
+    <fieldset id="versandinformationen" class="boxen">
+        <legend>Versandinformationen</legend>
+        Name <input type="text" for="name" id="name">
+        Telefonnummer (optional) <input type="text" for="telefonnummer" id="telefonnummer"> 
+        Straße <input type="text" for="straße" id="straße">  
+        Hausnummer <input type="text" for="hausnummer" id="hausnummer"> 
+        Postleitzahl <input type="text" for="postleitzahl" id="postleitzahl"> 
+        Stadt <input type="text" for="stadt" id="stadt"> 
+        Land <input type="text" for="land" id="land"> 
+    </fieldset>
+
+    <fieldset class="boxen">
+        <legend>Bestellungszusammenfassung</legend>
+        <div id="zusammenfassung"> 
+            <span id="endSorten"> </span>
+            </br>
+            <span id="endToppings"> </span>
+            </br>
+            <span id="endWaffelOderBecher"> </span>
+            </br>
+            <span id="endLieferoptionen"> </span>
+            </br>   
+            <span id="endVersandinformationen"> </span>
+        </div>
+        <button id="fertigeBestellung"> Bestellung überprüfen </button>
+
+    </fieldset>
+
+</body>
+
+</html>
