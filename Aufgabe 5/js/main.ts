@@ -3,7 +3,9 @@ namespace EisDealer {
 
     window.addEventListener("DOMContentLoaded", init);
 
-    function init(_event: Event): void {
+    //Hier werden die Funktionen zum zeichnen des HTML sowie die EventListener für die Input-Elemente zugewiesen.
+    function init(): void {
+
         drawHTML();
         document.getElementById("fertigeBestellung").addEventListener("click", fertigeBestellung);
 
@@ -16,29 +18,34 @@ namespace EisDealer {
         }
     }
 
+    //Die Felder für unsere vom Mitarbeiter eingepflegten Sorten wird hier erstellt.
     function drawHTML() {
         let parent: HTMLElement = document.getElementById("sorten");
-        for (let i:number = 0; i < eissorten.length; i++) {
-            let input: String = "<input type='" + eissorten[i].type + "' name='" + eissorten[i].name + "' value='" + eissorten[i].value +"' step='1' min='0' max='15'>";
-            let label: String = "<label for='" + eissorten[i].name + "'>" + eissorten[i].name + "</label>";
+        for (let key in eissorten) {
+            let input: String = "<input type='" + eissorten[key].type + "' name='" + eissorten[key].name + "' value='" + eissorten[key].value +"' step='1' min='0' max='15'>";
+            let label: String = "<label for='" + eissorten[key].name + "'>" + eissorten[key].name + "</label>";
             parent.innerHTML += input;
             parent.innerHTML += label;
         }
-        for (let i: number = 0; i<topping.length; i++) {
-            let input: String = "<input type='" + topping[i].type + "' name='" + topping[i].name + "' value='" + topping[i].preis + "'>" + topping[i].name;
+        for (let key in topping) {
+            let input: String = "<input type='" + topping[key].type + "' name='" + topping[key].name + "' value='" + topping[key].preis + "'>" + topping[key].name;
             document.getElementById("toppings").innerHTML += input;
         }
-        for (let i: number = 0; i<behaeltnis.length; i++) {
-            let input: String = "<input type='" + behaeltnis[i].type + "' name='Behaeltnis' id='" + behaeltnis[i].name + "' value='" + behaeltnis[i].preis + "'>" + behaeltnis[i].name; 
+        for (let key in behaeltnis) {
+            let input: String = "<input type='" + behaeltnis[key].type + "' name='Behaeltnis' id='" + behaeltnis[key].name + "' value='" + behaeltnis[key].preis + "'>" + behaeltnis[key].name; 
             document.getElementById("waffelOderBecher").innerHTML += input;
         }
-        for (let i: number = 0; i<versand.length; i++) {
-            let input: String = "<input type='" + versand[i].type + "' name='shipping' value='" + versand[i].preis + "' id='" + versand[i].name + "'>" + versand[i].name; 
+        for (let key in versand) {
+            let input: String = "<input type='" + versand[key].type + "' name='shipping' value='" + versand[key].preis + "' id='" + versand[key].name + "'>" + versand[key].name; 
             document.getElementById("lieferoptionen").innerHTML += input;
         }
     }
     
-    function bestellung(_event: Event): void { 
+    /**
+     *  Hier wird die Bestellzusammenfassung erstellt. 
+     *  Bei einer Veränderung werden immer alle Zusammenfassungsfelder gelöscht und dann neu gefüllt.
+     */
+    function bestellung(): void { 
         let bestellungsOptionen: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         document.getElementById("endSorten").innerHTML = "Sorten: ";
         document.getElementById("endToppings").innerHTML = "Toppings: ";
@@ -49,49 +56,50 @@ namespace EisDealer {
 
         for (let i: number = 0; i < bestellungsOptionen.length; i++) {
             if (bestellungsOptionen[i].checked == true) {
-                for(let j: number = 0; j< topping.length; j++) {
-                    if (bestellungsOptionen[i].name == topping[j].name) {
+                for(let key in topping) {
+                    if (bestellungsOptionen[i].name == key) {
                         let target = document.createElement("ul");
-                        target.innerHTML = `${bestellungsOptionen[i].name}`;
+                        target.innerHTML = `${key}`;
                         document.getElementById("endToppings").appendChild(target);
                     }
                 } 
-                for(let j: number = 0; j< behaeltnis.length; j++) {
-                    if (bestellungsOptionen[i].id == behaeltnis[j].name) {
+                for(let key in behaeltnis) {
+                    if (bestellungsOptionen[i].id == key) {
                         let target = document.createElement("ul");
                         target.innerHTML=`${bestellungsOptionen[i].id}`;
                         document.getElementById("endWaffelOderBecher").appendChild(target);
 
                     }
                  }
-                 for(let j: number = 0; j< versand.length; j++) {
-                     if (bestellungsOptionen[i].id == versand[j].name) {
+                 for(let key in versand) {
+                     if (bestellungsOptionen[i].id == key) {
                     let target =document.createElement("ul");
-                    target.innerHTML=`${versand[j].name}`;
+                    target.innerHTML=`${key}`;
                     document.getElementById("endLieferoptionen").appendChild(target);
                     }
                 }
             }
-            for(let j: number = 0; j< eissorten.length; j++) {
-               if (bestellungsOptionen[i].name == eissorten[j].name && Number(bestellungsOptionen[i].value) > 0){
+            for(let key in eissorten) {
+               if (bestellungsOptionen[i].name == key && Number(bestellungsOptionen[i].value) > 0){
                     let target = document.createElement("ul");
-                    target.innerHTML = `${bestellungsOptionen[i].value} Kugel(n) ${bestellungsOptionen[i].name}`;
+                    target.innerHTML = `${bestellungsOptionen[i].value} Kugel(n) ${key}`;
                     document.getElementById("endSorten").appendChild(target);
-                } 
+                }
             }
             
         }
     }
 
-    function bestellwert(_event: Event): void { 
+    //Hier wird die Summe über alle ausgewählten Produkte erstellt und dann Preis Element angezeigt.
+    function bestellwert(): void { 
         let orderSum: number = 0;
         let orderPrice: number = 0;
         let bestellungsOptionen: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
 
         for (let i: number = 0; i < bestellungsOptionen.length; i++) {
-            for (let j: number = 0; j < eissorten.length; j++) {
-                if (bestellungsOptionen[i].name == eissorten[j].name && Number(bestellungsOptionen[i].value) > 0){
-                    orderPrice = Number(bestellungsOptionen[i].value) * eissorten[j].preis;
+            for (let key in eissorten) {
+                if (bestellungsOptionen[i].name == key && Number(bestellungsOptionen[i].value) > 0){
+                    orderPrice = Number(bestellungsOptionen[i].value) * eissorten[key].preis;
                     orderSum += orderPrice;
                 }
             }
@@ -103,9 +111,10 @@ namespace EisDealer {
         }
     }
 
+    //Überprüfung der Bestellungsangaben nach klicken des Bestellung-Überprüfen Buttons
     function fertigeBestellung(): void {
 
-        let deliveryStatus: number = 0;
+        let deliveryStatus: boolean = false;
         let name: HTMLInputElement = <HTMLInputElement>document.getElementById("name");
         let telefonnummer: HTMLInputElement = <HTMLInputElement>document.getElementById("telefonnummer");
         let straße: HTMLInputElement = <HTMLInputElement>document.getElementById("straße");
@@ -116,12 +125,14 @@ namespace EisDealer {
 
         let versandOptionen: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         
+        //check ob ein versand gewählt wurde.
         for(let i: number = 0; i< versandOptionen.length; i++) {
             if(versandOptionen[i].checked && versandOptionen[i].name == "shipping") {
-                deliveryStatus = 1;
+                deliveryStatus = true;
             }
         }
 
+        //check ob alle Felder Text enthalten.
         if (name.value == "" 
         || telefonnummer.value == ""
         || straße.value == "" 
@@ -129,8 +140,10 @@ namespace EisDealer {
         || postleitzahl.value == ""
         || stadt.value == "" 
         || land.value == "" 
-        || deliveryStatus == 0) {
+        || deliveryStatus == false) {
             alert("Die Felder müssen ausgefüllt werden");
+        } else {
+            alert("Ihre Bestellung wurde entgegen genommen");
         }
     }
 }
