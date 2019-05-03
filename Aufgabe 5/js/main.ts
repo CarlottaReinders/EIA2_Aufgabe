@@ -20,23 +20,24 @@ namespace EisDealer {
 
     //Die Felder für unsere vom Mitarbeiter eingepflegten Sorten wird hier erstellt.
     function drawHTML() {
-        let parent: HTMLElement = document.getElementById("sorten");
+        
         for (let key in eissorten) {
-            let input: String = "<input type='" + eissorten[key].type + "' name='" + eissorten[key].name + "' value='" + eissorten[key].value +"' step='1' min='0' max='15'>";
-            let label: String = "<label for='" + eissorten[key].name + "'>" + eissorten[key].name + "</label>";
+            let parent: HTMLElement = document.getElementById("sorten");
+            let input: String = "<input type='" + eissorten[key].type + "' name='" + key + "' value='" + eissorten[key].value + "' step='1' min='0' max='15'>";
+            let label: String = "<label for='" + key + "'>" + key + "</label>";
             parent.innerHTML += input;
             parent.innerHTML += label;
         }
         for (let key in topping) {
-            let input: String = "<input type='" + topping[key].type + "' name='" + topping[key].name + "' value='" + topping[key].preis + "'>" + topping[key].name;
+            let input: String = "<input type='" + topping[key].type + "' name='" + key + "' value='" + topping[key].preis + "'>" + key;
             document.getElementById("toppings").innerHTML += input;
         }
         for (let key in behaeltnis) {
-            let input: String = "<input type='" + behaeltnis[key].type + "' name='Behaeltnis' id='" + behaeltnis[key].name + "' value='" + behaeltnis[key].preis + "'>" + behaeltnis[key].name; 
+            let input: String = "<input type='" + behaeltnis[key].type + "' name='Behaeltnis' id='" + key + "' value='" + behaeltnis[key].preis + "'>" + key; 
             document.getElementById("waffelOderBecher").innerHTML += input;
         }
         for (let key in versand) {
-            let input: String = "<input type='" + versand[key].type + "' name='shipping' value='" + versand[key].preis + "' id='" + versand[key].name + "'>" + versand[key].name; 
+            let input: String = "<input type='" + versand[key].type + "' name='shipping' value='" + versand[key].preis + "' id='" + key + "'>" + key; 
             document.getElementById("lieferoptionen").innerHTML += input;
         }
     }
@@ -55,34 +56,38 @@ namespace EisDealer {
 
 
         for (let i: number = 0; i < bestellungsOptionen.length; i++) {
+
+            //fügt alle checkboxen der Bestellungsübersicht hinzu
             if (bestellungsOptionen[i].checked == true) {
                 for(let key in topping) {
                     if (bestellungsOptionen[i].name == key) {
                         let target = document.createElement("ul");
-                        target.innerHTML = `${key}`;
+                        target.innerHTML = key;
                         document.getElementById("endToppings").appendChild(target);
                     }
                 } 
                 for(let key in behaeltnis) {
                     if (bestellungsOptionen[i].id == key) {
                         let target = document.createElement("ul");
-                        target.innerHTML=`${bestellungsOptionen[i].id}`;
+                        target.innerHTML= key;
                         document.getElementById("endWaffelOderBecher").appendChild(target);
 
                     }
                  }
                  for(let key in versand) {
-                     if (bestellungsOptionen[i].id == key) {
-                    let target =document.createElement("ul");
-                    target.innerHTML=`${key}`;
-                    document.getElementById("endLieferoptionen").appendChild(target);
+                    if (bestellungsOptionen[i].id == key) {
+                        let target =document.createElement("ul");
+                        target.innerHTML= key;
+                        document.getElementById("endLieferoptionen").appendChild(target);
                     }
                 }
             }
+
+            //fügt alle Eissorten der Bestellungsübersicht hinzu
             for(let key in eissorten) {
                if (bestellungsOptionen[i].name == key && Number(bestellungsOptionen[i].value) > 0){
                     let target = document.createElement("ul");
-                    target.innerHTML = `${bestellungsOptionen[i].value} Kugel(n) ${key}`;
+                    target.innerHTML = bestellungsOptionen[i].value + " Kugel(n) " + key;
                     document.getElementById("endSorten").appendChild(target);
                 }
             }
@@ -107,7 +112,7 @@ namespace EisDealer {
                 orderPrice = Number(bestellungsOptionen[i].value);
                 orderSum += orderPrice;
             }
-            document.getElementById("price").innerHTML = `Preis:  ${orderSum} €`;
+            document.getElementById("price").innerHTML = "Preis: " + orderSum +" €";
         }
     }
 
@@ -130,7 +135,7 @@ namespace EisDealer {
             if(versandOptionen[i].checked && versandOptionen[i].name == "shipping") {
                 deliveryStatus = true;
             }
-        }
+        } 
 
         //check ob alle Felder Text enthalten.
         if (name.value == "" 
