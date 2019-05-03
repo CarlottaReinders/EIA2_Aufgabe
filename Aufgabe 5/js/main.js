@@ -96,7 +96,7 @@ var EisDealer;
                 orderPrice = Number(bestellungsOptionen[i].value);
                 orderSum += orderPrice;
             }
-            document.getElementById("price").innerHTML = "Preis: " + orderSum + " €";
+            document.getElementById("price").innerHTML = "Preis: " + orderSum + "€";
         }
     }
     //Überprüfung der Bestellungsangaben nach klicken des Bestellung-Überprüfen Buttons
