@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "Minimal server just bouncing the URL",
 	"author": "Jirka, adapted by Lukas",
-	"main": "server.js",
+	"main": "Server.js",
 	"scripts": {
 		"start": "node Aufgabe6/server/Server.js"
 	},
