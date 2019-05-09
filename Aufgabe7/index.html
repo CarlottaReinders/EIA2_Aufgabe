@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aufgabe 7</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="js/main.js"> </script>
+    <script src="js/data.js"> </script>
+</head>
+
+<!--      
+    Aufgabe: (Aufgabe 7 Server: Erster Node Server) Name: (Carlotta Reinders) Matrikel: (261443)
+    Datum: (09.05.2019) Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert. 
+-->
+
+<body>
+
+    <form id="formID" action="https://server-eia2.herokuapp.com/" method="get" target="_blank">
+
+    <header>
+        <span>Eisdealer</span>
+    </header>
+
+    <fieldset id="sorten" class="boxen">
+        <legend>Eissorten</legend>
+    </fieldset>
+
+    <fieldset id="toppings" class="boxen">
+        <legend>Toppings</legend>
+    </fieldset>
+
+    <fieldset id="waffelOderBecher" class="boxen">
+        <legend>Waffel oder Becher?</legend>
+    </fieldset>
+
+    <fieldset class="boxen">
+        <legend>Preis</legend>
+        <div id="price">0 €</div>
+    </fieldset>
+
+    <fieldset id="lieferoptionen" class="boxen">
+        <legend>Lieferoptionen</legend>
+    </fieldset>
+
+    <fieldset>
+        <legend>Anmerkungen zur Bestellung</legend>
+        <input type="text">
+    </fieldset>
+
+    <fieldset id="versandinformationen" class="boxen">
+        <legend>Versandinformationen</legend>
+        Name <input name="Name" type="text" for="name" id="name">
+        Telefonnummer (optional) <input name="Telefonnummer" type="text" for="telefonnummer" id="telefonnummer"> 
+        Straße <input name="Straße" type="text" for="straße" id="straße">  
+        Hausnummer <input name="Hausnummer" type="text" for="hausnummer" id="hausnummer"> 
+        Postleitzahl <input name="PLZ" type="text" for="postleitzahl" id="postleitzahl"> 
+        Stadt <input name="Stadt" type="text" for="stadt" id="stadt"> 
+        Land <input name="Land" type="text" for="land" id="land"> 
+    </fieldset>
+
+    <fieldset class="boxen">
+        <legend>Bestellungszusammenfassung</legend>
+        <div id="zusammenfassung"> 
+            <span id="endSorten"> </span>
+            </br>
+            <span id="endToppings"> </span>
+            </br>
+            <span id="endWaffelOderBecher"> </span>
+            </br>
+            <span id="endLieferoptionen"> </span>
+            </br>   
+            <span id="endVersandinformationen"> </span>
+        </div>
+        <button type="submit" id="fertigeBestellung"> Bestellung überprüfen </button>
+
+    </fieldset>
+
+    </form>
+
+</body>
+
+</html>
