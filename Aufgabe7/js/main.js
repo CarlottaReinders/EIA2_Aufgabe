@@ -143,9 +143,6 @@ var EisDealer;
             if (bestellung[i].type == "radio" && bestellung[i].checked == true) {
                 url += bestellung[i].name + " : " + bestellung[i].value + "&";
             }
-            if (bestellung[i].name == "topping" && bestellung[i].checked == true) {
-                url += bestellung[i].name + " : " + bestellung[i].value + "&";
-            }
             if (bestellung[i].type == "number" && Number(bestellung[i].value) > 0) {
                 url += bestellung[i].name + " : " + bestellung[i].value + "&";
             }
