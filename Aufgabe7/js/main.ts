@@ -8,6 +8,7 @@ namespace EisDealer {
 
         drawHTML();
         document.getElementById("fertigeBestellung").addEventListener("click", fertigeBestellung);
+        document.getElementById("fertigeBestellung").addEventListener("click", WriteURL);
 
         let fieldsets: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
 
@@ -151,6 +152,50 @@ namespace EisDealer {
             alert("Die Felder müssen ausgefüllt werden");
         } else {
             alert("Ihre Bestellung wurde entgegen genommen");
+        }
+    }
+
+
+// Aufgabe 7
+
+    function WriteURL():void {
+        let bestellung:HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+        let url: string = "https://server-eia2.herokuapp.com/?";
+
+        for (let i:number=0; i<bestellung.length; i++) {
+        
+            if (bestellung[i].name == "eissorten" && bestellung[i].checked == true) {
+                url += `${bestellung[i].name}:${bestellung[i].value}&`;
+            }
+
+            if (bestellung[i].name == "Behaelter" && bestellung[i].checked == true) {
+                url += `${bestellung[i].name}:${bestellung[i].value}&`;
+            }
+
+            if (bestellung[i].type == "number" && Number(bestellung[i].value) > 0) {
+                url += `${bestellung[i].name}:${bestellung[i].value}&`;
+            }
+
+            if (bestellung[i].type == "checkbox" && bestellung[i].checked == true) {
+                url += `${bestellung[i].name}:${bestellung[i].value}&`;
+            }
+        }
+
+        sendRequest(url);
+    }
+
+
+    function sendRequest(_url: string): void {
+        let xhr: XMLHttpRequest = new XMLHttpRequest();
+        xhr.open("GET", _url, true);
+        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.send();
+    }
+
+    function handleStateChange(_event: ProgressEvent): void {
+        let xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            document.getElementById("serverID").innerHTML = xhr.response;
         }
     }
 }

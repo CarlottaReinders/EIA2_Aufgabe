@@ -5,6 +5,7 @@ var EisDealer;
     function init() {
         drawHTML();
         document.getElementById("fertigeBestellung").addEventListener("click", fertigeBestellung);
+        document.getElementById("fertigeBestellung").addEventListener("click", WriteURL);
         var fieldsets = document.getElementsByTagName("fieldset");
         for (var i = 0; i < fieldsets.length; i++) {
             var fieldset = fieldsets[i];
@@ -132,6 +133,38 @@ var EisDealer;
         }
         else {
             alert("Ihre Bestellung wurde entgegen genommen");
+        }
+    }
+    // Aufgabe 7
+    function WriteURL() {
+        var bestellung = document.getElementsByTagName("input");
+        var url = "https://server-eia2.herokuapp.com/?";
+        for (var i = 0; i < bestellung.length; i++) {
+            if (bestellung[i].name == "eissorten" && bestellung[i].checked == true) {
+                url += bestellung[i].name + ":" + bestellung[i].value + "&";
+            }
+            if (bestellung[i].name == "Behaelter" && bestellung[i].checked == true) {
+                url += bestellung[i].name + ":" + bestellung[i].value + "&";
+            }
+            if (bestellung[i].type == "number" && Number(bestellung[i].value) > 0) {
+                url += bestellung[i].name + ":" + bestellung[i].value + "&";
+            }
+            if (bestellung[i].type == "checkbox" && bestellung[i].checked == true) {
+                url += bestellung[i].name + ":" + bestellung[i].value + "&";
+            }
+        }
+        sendRequest(url);
+    }
+    function sendRequest(_url) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", _url, true);
+        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.send();
+    }
+    function handleStateChange(_event) {
+        var xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            document.getElementById("serverID").innerHTML = xhr.response;
         }
     }
 })(EisDealer || (EisDealer = {}));

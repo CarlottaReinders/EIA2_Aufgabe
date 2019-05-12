@@ -1,4 +1,5 @@
 import * as Http from "http"; // Importiere alle Inhalte aus "http" als Typ Http.
+import * as Url from "url";
 
 namespace L05_Server {										// Erstelle Namespace "L05 Server"
 	console.log("Starting server");							// "Starting server" wird auf der Konsole ausgegeben.
@@ -16,14 +17,24 @@ namespace L05_Server {										// Erstelle Namespace "L05 Server"
 	}														// Die Funktion handleListen wird geschlossen
 
 	function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void { 	// Funktion handleRequest wird definiert. Übergabeparameter: _request und _response. Rückgabewert: None. 
-		console.log("I hear voices!"); 
-		console.log(_request.url);						// In der Konsole wird "I hear voices!" ausgegeben
+		console.log("I hear voices!"); 						// In der Konsole wird "I hear voices!" ausgegeben
 
 		_response.setHeader("content-type", "text/html; charset=utf-8");    // Header-Werte für ein Header-Objekt wird festgelegt. Preexistierender Header-Wert wird ersetzt 
 		_response.setHeader("Access-Control-Allow-Origin", "*");			// Header-Wert für Access Control wird festgelet. "*" lässt jeden Origin zu (anstelle von <origin> für spezifische Origins oder "null" für keinen möglichen Origin)
 
-		_response.write(_request.url);
-		console.log(_request.url);						// Vom Server wurde eine URL empfangen, die ins _response geschrieben wird 
+		//_response.write(_request.url);
+		//console.log(_request.url);							// Vom Server wurde eine URL empfangen, die ins _response geschrieben wird 
+
+		_response.write("Deine Bestellung wurde entgegen genommen!");
+		let url:Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+
+		for (let key in url.query) { 
+			_response.write("p" + key + ":" + url.query[key] + "</p>");
+			console.log(key);
+			console.log(url.query[key]);
+		}
+		
+		console.log(_request.url);
 
 		_response.end();									// Der Server erhält eine Bestätigung, dass der request vollständig ist.
 	}														// Funktion handleRequest wird geschlossen
