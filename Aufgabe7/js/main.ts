@@ -195,7 +195,7 @@ namespace EisDealer {
     function handleStateChange(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            document.getElementById("serverID").innerHTML = xhr.response;
+            document.getElementById("server").innerHTML = xhr.response;
         }
     }
 }

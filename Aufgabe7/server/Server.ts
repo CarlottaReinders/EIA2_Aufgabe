@@ -1,4 +1,4 @@
-import * as Http from "http"; // Importiere alle Inhalte aus "http" als Typ Http.
+import * as Http from "http"; 								// Importiere alle Inhalte aus "http" als Typ Http.
 import * as Url from "url";
 
 namespace L05_Server {										// Erstelle Namespace "L05 Server"

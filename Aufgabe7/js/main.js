@@ -164,7 +164,7 @@ var EisDealer;
     function handleStateChange(_event) {
         var xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            document.getElementById("serverID").innerHTML = xhr.response;
+            document.getElementById("server").innerHTML = xhr.response;
         }
     }
 })(EisDealer || (EisDealer = {}));
