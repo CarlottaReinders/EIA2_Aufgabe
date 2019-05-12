@@ -20,10 +20,10 @@ function handleRequest(_request, _response) {
     _response.setHeader("Access-Control-Allow-Origin", "*"); // "Acess-Control-Allow-Origin" wird als Header-Wert festgelegt, erlaubt Webbrowsern oder Clients den Zugriff über einen anderen Server oder andere Domain
     // _response.write(_request.url); // _request.url wird in _response.write in der URL geschrieben, vom Server so empfangen --- 2.4 Was hinter Schrägstrich in der URL eingetragen wird, steht dann auch im Browser 
     //console.log (_request.url);
-    _response.write("<h3>Wir bestätigen hiermit folgende Artikel:</h3>");
+    _response.write("<h2>Ihre Bestellung wurde entgegen genommen!</h2>");
     let url = Url.parse(_request.url, true);
     for (let key in url.query)
-        _response.write("<p>" + key + url.query[key] + "</p> <br>");
+        _response.write("<p>" + key + url.query[key] + "</p>");
     _response.end(); // _response wird beendet; der Server bekommt die Nachricht, dass request nun fertig ist
 } // die Funktion "handleRequest" wird geschlossen
 //# sourceMappingURL=Server.js.map

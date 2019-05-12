@@ -143,7 +143,7 @@ var EisDealer;
             if (bestellung[i].name == "eissorten" && bestellung[i].checked == true) {
                 url += bestellung[i].name + ":" + bestellung[i].value + "&";
             }
-            if (bestellung[i].name == "Behaelter" && bestellung[i].checked == true) {
+            if (bestellung[i].name == "topping" && bestellung[i].checked == true) {
                 url += bestellung[i].name + ":" + bestellung[i].value + "&";
             }
             if (bestellung[i].type == "number" && Number(bestellung[i].value) > 0) {

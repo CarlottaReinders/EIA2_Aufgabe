@@ -168,7 +168,7 @@ namespace EisDealer {
                 url += `${bestellung[i].name}:${bestellung[i].value}&`;
             }
 
-            if (bestellung[i].name == "Behaelter" && bestellung[i].checked == true) {
+            if (bestellung[i].name == "topping" && bestellung[i].checked == true) {
                 url += `${bestellung[i].name}:${bestellung[i].value}&`;
             }
 
