@@ -175,6 +175,10 @@ namespace EisDealer {
             if (bestellung[i].type == "checkbox" && bestellung[i].checked == true) {
                 url += `${bestellung[i].name} : ${bestellung[i].value}&`;
             }
+
+            if (bestellung[i].type == "text" && bestellung[i].checked == true) {
+                url += `${bestellung[i].name} : ${bestellung[i].value}&`;
+            }
         }
 
         sendRequest(url);
