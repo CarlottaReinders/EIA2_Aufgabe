@@ -172,12 +172,10 @@ namespace EisDealer {
                 url += `${bestellung[i].name} : ${bestellung[i].value}&`;
             }
 
-            for (let key in eissorten)
-
-            if (bestellung[i].name == key && Number(bestellung[i].value) > 0) {
+            if (bestellung[i].type == "number" && Number(bestellung[i].value) > 0) {
                 url += `${bestellung[i].name} : ${bestellung[i].value}&`;
             }
-        
+
             if (bestellung[i].type == "checkbox" && bestellung[i].checked == true) {
                 url += `${bestellung[i].name} : ${bestellung[i].value}&`;
             }
