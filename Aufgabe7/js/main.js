@@ -140,7 +140,7 @@ var EisDealer;
         var bestellung = document.getElementsByTagName("input");
         var url = "https://server-eia2.herokuapp.com/?";
         for (var i = 0; i < bestellung.length; i++) {
-            if (bestellung[i].name == "eissorten" && bestellung[i].checked == true) {
+            if (bestellung[i].type == "radio" && bestellung[i].checked == true) {
                 url += bestellung[i].name + " : " + bestellung[i].value + "&";
             }
             if (bestellung[i].name == "topping" && bestellung[i].checked == true) {

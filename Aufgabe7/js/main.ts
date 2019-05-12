@@ -164,7 +164,7 @@ namespace EisDealer {
 
         for (let i:number=0; i<bestellung.length; i++) {
         
-            if (bestellung[i].name == "eissorten" && bestellung[i].checked == true) {
+            if (bestellung[i].type == "radio" && bestellung[i].checked == true) {
                 url += `${bestellung[i].name} : ${bestellung[i].value}&`;
             }
 
