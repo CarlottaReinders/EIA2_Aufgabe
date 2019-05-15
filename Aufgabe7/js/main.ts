@@ -176,7 +176,7 @@ namespace EisDealer {
                 url += `${bestellung[i].name} : ${bestellung[i].value}&`;
             }
 
-            if (bestellung[i].type == "text" && bestellung[i].checked == true) {
+            if (bestellung[i].type == "text" && bestellung[i].value != "") {
                 url += `${bestellung[i].name} : ${bestellung[i].value}&`;
             }
         }
@@ -186,16 +186,16 @@ namespace EisDealer {
 
 
     function sendRequest(_url: string): void {
-        let xhr: XMLHttpRequest = new XMLHttpRequest();
-        xhr.open("GET", _url, true);
-        xhr.addEventListener("readystatechange", handleStateChange);
-        xhr.send();
+        let xhttp: XMLHttpRequest = new XMLHttpRequest();
+        xhttp.open("GET", _url, true);
+        xhttp.addEventListener("readystatechange", onReadyStateChange);
+        xhttp.send();
     }
 
-    function handleStateChange(_event: ProgressEvent): void {
-        let xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            document.getElementById("server").innerHTML = xhr.response;
+    function onReadyStateChange(_event: ProgressEvent): void {
+        let xhttp: XMLHttpRequest = <XMLHttpRequest>_event.target;
+        if (xhttp.readyState == XMLHttpRequest.DONE) {
+            document.getElementById("server").innerHTML = xhttp.response;
         }
     }
 }

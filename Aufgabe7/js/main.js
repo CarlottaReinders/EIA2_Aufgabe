@@ -149,22 +149,22 @@ var EisDealer;
             if (bestellung[i].type == "checkbox" && bestellung[i].checked == true) {
                 url += bestellung[i].name + " : " + bestellung[i].value + "&";
             }
-            if (bestellung[i].type == "text" && bestellung[i].checked == true) {
+            if (bestellung[i].type == "text" && bestellung[i].value != "") {
                 url += bestellung[i].name + " : " + bestellung[i].value + "&";
             }
         }
         sendRequest(url);
     }
     function sendRequest(_url) {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", _url, true);
-        xhr.addEventListener("readystatechange", handleStateChange);
-        xhr.send();
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", _url, true);
+        xhttp.addEventListener("readystatechange", onReadyStateChange);
+        xhttp.send();
     }
-    function handleStateChange(_event) {
-        var xhr = _event.target;
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            document.getElementById("server").innerHTML = xhr.response;
+    function onReadyStateChange(_event) {
+        var xhttp = _event.target;
+        if (xhttp.readyState == XMLHttpRequest.DONE) {
+            document.getElementById("server").innerHTML = xhttp.response;
         }
     }
 })(EisDealer || (EisDealer = {}));
