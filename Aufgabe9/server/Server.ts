@@ -1,35 +1,75 @@
-import * as Http from "http"; // http-Objekt wird aus "http" importiert; TS wird vermittelt, dass Node verwendet wird
+/**
+ * Simple server managing between client and database
+ * @author: Jirka Dell'Oro-Friedl
+ * @adapted: Lukas Scheuerle
+ */
+
+import * as Http from "http";
 import * as Url from "url";
+import * as Database from "./Database";
+
+console.log("Server starting");
+
+let port: number = Number(process.env.PORT);
+if (!port)
+    port = 8100;
+
+let server: Http.Server = Http.createServer();
+server.addListener("listening", handleListen);
+server.addListener("request", handleRequest);
+server.listen(port);
 
 
-console.log("Starting server"); // in der Konsole wird "Starting Server" ausgegeben
-let port: number = Number(process.env.PORT); // eine neue Variable vom Typ Number und mit dem Namen "port" wird erstellt, auf die der Server hören soll
-if (!port) // wenn port nicht richtig/anders ist, soll nächste Zeile ausgelesen werden
-	port = 8100; //port wird der Wert 8100 zugewiesen
 
-let server: Http.Server = Http.createServer(); // eine neue Variable vom Typ Http.Server und mit dem Namen "server" wird erstellt
-server.addListener("request", handleRequest);  // der Variable "server" wird ein Listener zugefügt, der auf "request" hört und dann die Funktion "handleRequest" ausführt
-server.addListener("listening", handleListen); // der Variable "server" wird ein Listener zugefügt, der auf "listening" hört und dann die Funktion "handleListen" ausführt
-server.listen(port); // die Variable "server" hört jetzt auf die Variable "port"
+function handleListen(): void {
+    console.log("Listening on port: " + port);
+}
 
-function handleListen(): void { // eine neue Funktion vom Typ void und mit dem Namen "handleListen" wird erstellt
-	console.log("Listening"); // in der Konsole wird "Listening" ausgegeben, sobald die Funktion "handleListen" ausgeführt wird
-} // die Funktion "handleListen" wird geschlossen
+function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
+    console.log("Request received");
 
-function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void { // eine neue Funktion vom Typ void und mit dem Namen "handleRequest" wird erstellt, request_ speichert eingehende Nachrichten von port, _response speichert die Antwort vom Server
-	console.log("I hear voices!"); // in der Konsole wird "I hear voices!" ausgegeben, sobald die Funktion "handleRequest" ausgeführt wird
-	console.log(_request.url);
-	_response.setHeader("content-type", "text/html; charset=utf-8"); // Header-Werte für Header-Objekt werden definiert; die Contentart, die Art des Dokuments "text/html" und die Unicode-Codierung "charset=utf-8" sind vorgegeben
-	_response.setHeader("Access-Control-Allow-Origin", "*"); // "Acess-Control-Allow-Origin" wird als Header-Wert festgelegt, erlaubt Webbrowsern oder Clients den Zugriff über einen anderen Server oder andere Domain
+    let query: AssocStringString = <AssocStringString> Url.parse(_request.url, true).query;
+    let command: string = query["command"];
+    let matrikel: string = query["matrikel"];
 
+    switch (command) {
+        case "insert":
+            let student: StudentData = {
+                name: query["name"],
+                firstname: query["firstname"],
+                matrikel: parseInt(query["matrikel"])
+            };
+            Database.insert(student);
+            respond(_response, "storing data");
+            break;
+        case "refresh":
+            Database.findAll(findCallback);
+            break;
 
-	// _response.write(_request.url); // _request.url wird in _response.write in der URL geschrieben, vom Server so empfangen --- 2.4 Was hinter Schrägstrich in der URL eingetragen wird, steht dann auch im Browser 
-	//console.log (_request.url);
+        case "search":
+            for(let key in query){
+                if(key == "matrikel"){
+                    Database.searchMatrikelnummer(Number(matrikel), findCallback);
+                }
+            }
+            break;
 
-	_response.write("<h2>Ihre Bestellung wurde entgegen genommen!</h2>");
-	let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-	for (let key in url.query)
-		_response.write("<p>" + key + url.query[key] + "</p>");
+        default:
+            respond(_response, "unknown command: " + command);
+            break;
+            
+    }
 
-	_response.end(); // _response wird beendet; der Server bekommt die Nachricht, dass request nun fertig ist
+    // findCallback is an inner function so that _response is in scope
+    function findCallback(json: string): void {
+        respond(_response, json);
+    }
+}
+
+function respond(_response: Http.ServerResponse, _text: string): void {
+    //console.log("Preparing response: " + _text);
+    _response.setHeader("Access-Control-Allow-Origin", "*");
+    _response.setHeader("content-type", "text/html; charset=utf-8");
+    _response.write(_text);
+    _response.end();
 }
