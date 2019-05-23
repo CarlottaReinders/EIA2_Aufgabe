@@ -49,6 +49,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
         case "search":
             for(let key in query){
                 if(key == "matrikel"){
+                    console.log("hiooo");
                     Database.searchMatrikelnummer(Number(matrikel), findCallback);
                 }
             }

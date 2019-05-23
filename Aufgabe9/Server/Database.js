@@ -55,7 +55,7 @@ function findAll(_callback) {
 }
 exports.findAll = findAll;
 function searchMatrikelnummer(_matrikel, _callback) {
-    var cursor = students.find({ matrikel: _matrikel });
+    var cursor = students.find({ "matrikel": _matrikel });
     cursor.toArray(prepareAnswer);
     // toArray-handler receives two standard parameters, an error object and the array
     // implemented as inner function, so _callback is in scope

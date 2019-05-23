@@ -40,6 +40,7 @@ function handleRequest(_request, _response) {
         case "search":
             for (var key in query) {
                 if (key == "matrikel") {
+                    console.log("hiooo");
                     Database.searchMatrikelnummer(Number(matrikel), findCallback);
                 }
             }
