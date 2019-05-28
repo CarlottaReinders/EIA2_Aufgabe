@@ -70,11 +70,12 @@
         border: dotted;
         border-color: #999999;
         border-width: 0.2em;
+        font-variant: small-caps;
     }
 
     h1 {
         font-family: Georgia, 'Times New Roman', Times;
-        color: #999999;
+        color: #686868;
         font-style: oblique;
         font-size: 2rem;
         display: flex;
@@ -105,11 +106,13 @@
 legend {
     background-color: #fae0f0ef;
     padding: 5px;
-    font-family: 'Courier New', Courier, monospace;
     border: dotted;
     color: #686868;
     border-color: #999999;
     border-width: 1px;
+    font-family: Georgia, 'Times New Roman', Times;
+    font-weight: bold;
+    font-style: oblique;
 }
 
 button {
