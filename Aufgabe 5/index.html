@@ -15,10 +15,12 @@
     Datum: (28.04.2019) Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert. 
 -->
 
-<body class="body">
+<body>
     <header>
-        <span>Eisdealer</span>
+        <h1>Ice dealer</h1>
+        <p>Create your ultimate ice cream dream!</p>
     </header>
+
 
     <fieldset id="sorten" class="boxen">
         <legend>Eissorten</legend>
@@ -32,21 +34,16 @@
         <legend>Waffel oder Becher?</legend>
     </fieldset>
 
-    <fieldset class="boxen">
-        <legend>Preis</legend>
-        <div id="price">0 €</div>
-    </fieldset>
-
     <fieldset id="lieferoptionen" class="boxen">
         <legend>Lieferoptionen</legend>
     </fieldset>
 
     <fieldset class="boxen">
-        <legend>Anmerkungen zur Bestellung</legend>
-        <input type="text">
+        <legend>Preis</legend>
+        <div id="price">0 €</div>
     </fieldset>
 
-    <fieldset id="versandinformationen" class="boxen">
+    <fieldset id="versandinformationen" class="boxen" class="versand">
         <legend>Versandinformationen</legend>
         Name <input type="text" for="name" id="name">
         Telefonnummer (optional) <input type="text" for="telefonnummer" id="telefonnummer"> 
@@ -55,6 +52,11 @@
         Postleitzahl <input type="text" for="postleitzahl" id="postleitzahl"> 
         Stadt <input type="text" for="stadt" id="stadt"> 
         Land <input type="text" for="land" id="land"> 
+    </fieldset>
+
+    <fieldset class="boxen">
+        <legend>Anmerkungen zur Bestellung</legend>
+        <input type="text">
     </fieldset>
 
     <fieldset class="boxen">
@@ -73,10 +75,6 @@
         <button id="fertigeBestellung"> Bestellung überprüfen </button>
 
     </fieldset>
-
-    <div class="probe">
-        <img src="/img/eis1.jpg" alt="Bild von Eis">
-    </div>
 
 </body>
 
