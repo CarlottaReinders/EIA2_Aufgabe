@@ -71,7 +71,7 @@ function wasser() {
 }
 function boden() {
     var boden = new Path2D();
-    boden.rect(0, 400, 900, 300);
+    boden.rect(0, 400, 900, 100);
     crc.fillStyle = " #614f3fef";
     crc.fill(boden);
 }
