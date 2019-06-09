@@ -1,14 +1,15 @@
 @charset "utf-8";
 
 /*--mobile--*/
-@media(max-width: 480px) {
+@media (min-width:0px) and (max-width: 480px) {
 
     body {
         background-image: url("../eis1.jpg");
     }
     
     header {
-        background-color: #fae0f0ef;
+        background-color:  #fae0f0ef;
+        box-shadow: 5px 5px 10px grey;
         margin: 1em 2em;
         border: dotted;
         border-color: #999999;
@@ -17,7 +18,7 @@
 
     h1 {
         font-family: Georgia, 'Times New Roman', Times;
-        color: #999999;
+        color: #686868;
         font-style: oblique;
         font-size: 1rem;
         display: flex;
@@ -35,22 +36,67 @@
     }
 
     .boxen {
-        display: grid;
-        float: left;
         box-shadow: 5px 5px 10px grey;
         background-color: #ffffff;
-        font-family: 'Courier New', Courier, monospace;
+        box-shadow: 5px 5px 10px grey;
+        font-size: 0.8rem;
+        font-family: Georgia, 'Times New Roman', Times;
+        font-style: oblique;
+        color: #838383;
         border: dotted;
         border-color: #999999;
     }
 
     legend {
-        background-color: #fae0f0ef;;
+        background-color: #fae0f0ef;
+        color: #686868;
         padding: 5px;
-        font-family: 'Courier New', Courier, monospace;
+        font-family: Georgia, 'Times New Roman', Times;
+        font-style: oblique;
+        font-weight: bold;
+        font-size: 0.8rem;
         border: dotted;
         border-color: #999999;
         border-width: 1px;
+    }
+    button {
+        background-color: #fae0f0ef;
+        font-family: Georgia, 'Times New Roman', Times;
+        color: #686868;
+        font-style: oblique;
+        font-size: 1em;
+        box-shadow: 3px 3px 7px grey;
+    }
+    
+    button:hover {
+        background-color: #ffffff;
+        border-color:  #fae0f0ef;
+        border-width: 3px;
+        font-style: normal;
+        cursor: pointer;
+    }
+
+    input[type=text] {
+        width: 95%;
+        padding: 5px;
+        margin: 4px 0;
+        display: flex;
+        justify-content: center;
+      }
+
+    input[type=radio] {
+        margin: 0.5em;
+        cursor: pointer;
+    }
+
+    input[type=checkbox] {
+        margin: 0.5em;
+        cursor: pointer;
+    }
+
+    input[type=number] {
+        margin: 0.5em;
+        cursor: pointer;
     }
 }
 
@@ -66,6 +112,7 @@
 
     header {
         background-color: #fae0f0ef;
+        box-shadow: 5px 5px 10px grey;
         margin: 1em 2em;
         border: dotted;
         border-color: #999999;
@@ -98,7 +145,9 @@
     margin: 1em 2em;
     box-shadow: 5px 5px 10px grey;
     background-color: #ffffff;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Georgia, 'Times New Roman', Times;
+    font-style: oblique;
+    color: #838383;
     border: dotted;
     border-color: #999999;
 }
@@ -117,7 +166,8 @@ legend {
 
 button {
     background-color: #fae0f0ef;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Georgia, 'Times New Roman', Times;
+    color: #686868;
     font-style: oblique;
     font-size: 1em;
     box-shadow: 3px 3px 7px grey;
@@ -167,6 +217,7 @@ input[type=number] {
 
     header {
         background-color: #fae0f0ef;
+        box-shadow: 5px 5px 10px grey;
         margin: 1em 4em;
         border: dotted;
         border-color: #999999;
