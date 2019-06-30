@@ -2,16 +2,11 @@ namespace Aquarium {
 
     export class fischeLinks extends CWorld {
 
-        x: number;
-        y: number;
-        dx: number;
-        dy: number;
-
     constructor() {
         super();
-        let x: number = Math.random() * canvas.width;
-        let y: number = Math.random() * canvas.height;
-        let dx: number = Math.random() - 5;
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.dx = Math.random() * - 5;
     }
 
         drawlinks(): void {

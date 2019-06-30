@@ -18,13 +18,11 @@ namespace Aquarium {
             crc.strokeStyle = "#bfecffef";
             crc.stroke(blasen);
             crc.fillStyle = "#b9dfffb4";
-            crc.fill(blasen);
+			crc.fill(blasen);
+			
+			super.draw();
 		}
 
-		update(): void {
-			this.move();
-			this.draw();
-		}
 
 		move(): void {
 			this.y += this.dy;

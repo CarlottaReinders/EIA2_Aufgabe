@@ -17,13 +17,13 @@ var Aquarium;
         __extends(fischeRechts, _super);
         function fischeRechts() {
             var _this = _super.call(this) || this;
-            var x = Math.random() * Aquarium.canvas.width;
-            var y = Math.random() * Aquarium.canvas.height;
-            var dx = Math.random() + 5;
-            var dy = Math.random() - 3;
+            _this.x = Math.random() * Aquarium.canvas.width;
+            _this.y = Math.random() * Aquarium.canvas.height;
+            _this.dx = Math.random() + 5;
+            _this.dy = Math.random() - 3;
             return _this;
         }
-        fischeRechts.prototype.drawrechts = function () {
+        fischeRechts.prototype.draw = function () {
             var koerper = new Path2D();
             koerper.ellipse(this.x, this.y, 20, 35, 1.7, 0, 2 * Math.PI);
             Aquarium.crc.fillStyle = "#e27948ef";
@@ -46,10 +46,7 @@ var Aquarium;
             pupille.arc(this.x + 24, this.y - 3, 6, 0, 2 * Math.PI);
             Aquarium.crc.fillStyle = "#000000";
             Aquarium.crc.fill(pupille);
-        };
-        fischeRechts.prototype.update = function () {
-            this.move();
-            this.drawrechts();
+            _super.prototype.draw.call(this);
         };
         fischeRechts.prototype.move = function () {
             this.x += this.dx;

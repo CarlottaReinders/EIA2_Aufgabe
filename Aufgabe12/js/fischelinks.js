@@ -17,9 +17,9 @@ var Aquarium;
         __extends(fischeLinks, _super);
         function fischeLinks() {
             var _this = _super.call(this) || this;
-            var x = Math.random() * Aquarium.canvas.width;
-            var y = Math.random() * Aquarium.canvas.height;
-            var dx = Math.random() - 5;
+            _this.x = Math.random() * Aquarium.canvas.width;
+            _this.y = Math.random() * Aquarium.canvas.height;
+            _this.dx = Math.random() * -5;
             return _this;
         }
         fischeLinks.prototype.drawlinks = function () {

@@ -22,7 +22,7 @@ namespace Aquarium {
         for (let i: number = 0; i <= 3; i++) {
             let fisch: fischeRechts = new fischeRechts;
             cworldArray.push(fisch);
-            fisch.drawrechts;
+            fisch.draw;
         }
 
         for (let i: number = 0; i <= 1; i++) {
@@ -36,13 +36,11 @@ namespace Aquarium {
             cworldArray.push(blase);
             blase.draw;
         }
-    }
         update();
     }
 
     // Update Funktion
     function update(): void {
-        let cworldArray: CWorld[] = [];
         let crc: CanvasRenderingContext2D;
         let canvas: HTMLCanvasElement;
         let fps: number = 35;
@@ -66,16 +64,15 @@ namespace Aquarium {
     }
 
     //Fütterung
-    function fütterung(_event: MouseEvent): void {
-        let xMousePos: number = _event.clientX;
-        let yMousePos: number = _event.clientY;
-        let food: futter = new futter(xMousePos, yMousePos);
-            food.x = xMousePos - 9;
-		    food.y = yMousePos - 12;
+    function fütterung(_event: MouseEvent) :void {
+        let x: number = _event.clientX;
+        let y: number = _event.clientY;
+        let food: futter = new futter(x, y);
+            food.x = x - 8;
+		    food.y = y - 13;
             cworldArray.push(food);
         }
     
-
 
     function drawBackground(): void {
         let canvas = document.getElementsByTagName("canvas")[0];
@@ -134,3 +131,4 @@ namespace Aquarium {
             crc.stroke(pflanze1);
         }
     }
+}

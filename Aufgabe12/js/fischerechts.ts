@@ -1,21 +1,16 @@
 namespace Aquarium {
 
     export class fischeRechts extends CWorld {
-
-        x: number;
-        y: number;
-        dx: number;
-        dy: number;
-
+        
     constructor() {
         super();
-        let x: number = Math.random() * canvas.width;
-        let y: number = Math.random() * canvas.height;
-        let dx: number = Math.random() + 5;
-        let dy: number = Math.random() - 3;
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.dx = Math.random() + 5;
+        this.dy = Math.random() - 3;
 }
 
-        drawrechts(): void {
+        draw(): void {
 
             let koerper: Path2D = new Path2D();
             koerper.ellipse(this.x, this.y, 20, 35, 1.7, 0, 2 * Math.PI);
@@ -42,11 +37,8 @@ namespace Aquarium {
             pupille.arc(this.x + 24, this.y - 3, 6, 0, 2 * Math.PI);
             crc.fillStyle = "#000000";
             crc.fill(pupille);
-        }
 
-        update(): void {
-            this.move();
-            this.drawrechts();
+            super.draw();
         }
 
         move(): void {

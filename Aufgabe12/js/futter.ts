@@ -5,26 +5,23 @@ namespace Aquarium {
 
         constructor(_x: number, _y: number) {
             super();
-            this.dy = 3;
-            this.x = _x;
-            this.y = _y;
-        }
-
-        move(): void {
-            if (this.y < 900) {
-                this.y += this.dy;
-            }
+            this.radius = 3;
+            this.dy = 6;
         }
 
         draw(): void {
             let food: Path2D = new Path2D();
             food.moveTo(this.x, this.y);
-            food.lineTo(this.x + 10, this.y + 2);
-            food.lineTo(this.x + 10, this.y + 12);
-            food.lineTo(this.x, this.y + 10);
+            crc.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
             food.closePath();
-            crc.fillStyle = "#724039";
+            crc.fillStyle = "#78ca90";
             crc.fill(food);
+        }
+
+        move(): void {
+            if (this.y < 600) {
+                this.y += this.dy;
+            }
         }
     }
 }

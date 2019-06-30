@@ -17,25 +17,22 @@ var Aquarium;
         __extends(futter, _super);
         function futter(_x, _y) {
             var _this = _super.call(this) || this;
-            _this.dy = 3;
-            _this.x = _x;
-            _this.y = _y;
+            _this.radius = 3;
+            _this.dy = 6;
             return _this;
         }
-        futter.prototype.move = function () {
-            if (this.y < 900) {
-                this.y += this.dy;
-            }
-        };
         futter.prototype.draw = function () {
             var food = new Path2D();
             food.moveTo(this.x, this.y);
-            food.lineTo(this.x + 10, this.y + 2);
-            food.lineTo(this.x + 10, this.y + 12);
-            food.lineTo(this.x, this.y + 10);
+            Aquarium.crc.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
             food.closePath();
-            Aquarium.crc.fillStyle = "#724039";
+            Aquarium.crc.fillStyle = "#78ca90";
             Aquarium.crc.fill(food);
+        };
+        futter.prototype.move = function () {
+            if (this.y < 600) {
+                this.y += this.dy;
+            }
         };
         return futter;
     }(Aquarium.CWorld));

@@ -30,10 +30,7 @@ var Aquarium;
             Aquarium.crc.stroke(blasen);
             Aquarium.crc.fillStyle = "#b9dfffb4";
             Aquarium.crc.fill(blasen);
-        };
-        blasen.prototype.update = function () {
-            this.move();
-            this.draw();
+            _super.prototype.draw.call(this);
         };
         blasen.prototype.move = function () {
             this.y += this.dy;
