@@ -1,6 +1,7 @@
 var Aquarium;
 (function (Aquarium) {
     document.addEventListener("DOMContentLoaded", init);
+    var fps = 35;
     var cworldArray = [];
     function init() {
         document.addEventListener("click", fütterung);
@@ -28,19 +29,10 @@ var Aquarium;
     }
     // Update Funktion
     function update() {
-        var crc;
-        var canvas;
-        var fps = 35;
         var imageData;
         window.setTimeout(update, 1000 / fps);
-        crc.clearRect(0, 0, canvas.width, canvas.height);
-        crc.putImageData(imageData, 0, 0);
-        for (var i = 0; i < cworldArray.length; i++) {
-            cworldArray[i].update();
-        }
-        for (var i = 0; i < cworldArray.length; i++) {
-            cworldArray[i].update();
-        }
+        Aquarium.crc.clearRect(0, 0, Aquarium.canvas.width, Aquarium.canvas.height);
+        Aquarium.crc.putImageData(imageData, 0, 0);
         for (var i = 0; i < cworldArray.length; i++) {
             cworldArray[i].update();
         }

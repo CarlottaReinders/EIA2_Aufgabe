@@ -1,11 +1,11 @@
 namespace Aquarium {
 
-
     document.addEventListener("DOMContentLoaded", init);
 
     export let crc: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
     export let imageData: ImageData;
+    let fps: number = 35;
     let cworldArray: CWorld[] = [];
 
 
@@ -41,22 +41,11 @@ namespace Aquarium {
 
     // Update Funktion
     function update(): void {
-        let crc: CanvasRenderingContext2D;
-        let canvas: HTMLCanvasElement;
-        let fps: number = 35;
         let imageData: ImageData;
 
         window.setTimeout(update, 1000 / fps);
         crc.clearRect(0, 0, canvas.width, canvas.height);
         crc.putImageData(imageData, 0, 0);
-
-        for (let i: number = 0; i < cworldArray.length; i++) {
-            cworldArray[i].update();
-        }
-
-        for (let i: number = 0; i < cworldArray.length; i++) {
-            cworldArray[i].update();
-        }
 
         for (let i: number = 0; i < cworldArray.length; i++) {
             cworldArray[i].update();
