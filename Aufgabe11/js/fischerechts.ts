@@ -41,14 +41,18 @@ namespace Aquarium {
         }
 
         move(): void {
-            this.x += this.dx;
+            this.x = this.x + this.dx;
             this.y += this.dy;
-            if (this.x + 50 > canvas.width + 100) {
-                this.x = 0;
+            if (this.x > canvas.width + 100) {
+                this.x = -50;
+            } else if (this.x < -100) {
+                this.x = canvas.width + 50;
             }
 
-			if (this.y < 0) { 
-                this.y = canvas.height;
+			if (this.y < -50) { 
+                this.y = canvas.height + 50;
+            } else if (this.y > canvas.height + 50) {
+                this.y = -50;
             }
         }
     }

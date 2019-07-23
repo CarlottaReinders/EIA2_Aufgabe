@@ -32,13 +32,19 @@ var Aquarium;
             this.drawrechts();
         };
         FischeRechts.prototype.move = function () {
-            this.x += this.dx;
+            this.x = this.x + this.dx;
             this.y += this.dy;
-            if (this.x + 50 > Aquarium.canvas.width + 100) {
-                this.x = 0;
+            if (this.x > Aquarium.canvas.width + 100) {
+                this.x = -50;
             }
-            if (this.y < 0) {
-                this.y = Aquarium.canvas.height;
+            else if (this.x < -100) {
+                this.x = Aquarium.canvas.width + 50;
+            }
+            if (this.y < -50) {
+                this.y = Aquarium.canvas.height + 50;
+            }
+            else if (this.y > Aquarium.canvas.height + 50) {
+                this.y = -50;
             }
         };
         return FischeRechts;
