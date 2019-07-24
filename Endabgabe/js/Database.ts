@@ -56,7 +56,7 @@ export function findAll(_callback: Function): void {
     }
 }
 
-export function search(_callback: Function, _finde: string): void {
+/*export function search(_callback: Function, _finde: string): void {
     let score: number = Number(_finde);
     player.find({ "": score }).toArray(prepareAnswer);
 
@@ -67,4 +67,4 @@ export function search(_callback: Function, _finde: string): void {
         else
             _callback(JSON.stringify(studentArray));
     }
-}
+}*/
