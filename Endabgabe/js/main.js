@@ -26,6 +26,8 @@ var Fishies;
                 allFishArray.splice(i, 1);
             }
         }
+        Fishies.insert();
+        Fishies.refresh();
     }
     /* function gameOver() {
         let myImg = document.createElement("../img/dead.jpg");

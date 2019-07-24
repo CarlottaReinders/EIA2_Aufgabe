@@ -87,8 +87,6 @@ var Fishies;
                 }
                 else {
                     document.getElementById("gameOver").style.display = "block";
-                    insert();
-                    refresh();
                     return false;
                 }
             }

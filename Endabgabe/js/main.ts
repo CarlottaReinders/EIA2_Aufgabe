@@ -40,6 +40,8 @@ namespace Fishies {
                 allFishArray.splice(i, 1);
             }
         }
+        insert();
+        refresh(); 
     }
 
     /* function gameOver() {
