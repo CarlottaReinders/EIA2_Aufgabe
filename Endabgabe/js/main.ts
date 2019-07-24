@@ -186,7 +186,8 @@ namespace Fishies {
     }
 
     function restart() {
-        insert()
+        insert();
+        refresh();
         score = 0;
         document.getElementById("gameOver").style.display = "none";
         allFishArray.splice(0, allFishArray.length);
