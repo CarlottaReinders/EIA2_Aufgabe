@@ -40,8 +40,6 @@ namespace Fishies {
                 allFishArray.splice(i, 1);
             }
         }
-        insert();
-        refresh(); 
     }
 
     /* function gameOver() {
@@ -188,6 +186,7 @@ namespace Fishies {
     }
 
     function restart() {
+        insert()
         score = 0;
         document.getElementById("gameOver").style.display = "none";
         allFishArray.splice(0, allFishArray.length);

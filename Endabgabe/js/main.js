@@ -26,8 +26,6 @@ var Fishies;
                 allFishArray.splice(i, 1);
             }
         }
-        Fishies.insert();
-        Fishies.refresh();
     }
     /* function gameOver() {
         let myImg = document.createElement("../img/dead.jpg");
@@ -154,6 +152,7 @@ var Fishies;
         }
     }
     function restart() {
+        Fishies.insert();
         Fishies.score = 0;
         document.getElementById("gameOver").style.display = "none";
         allFishArray.splice(0, allFishArray.length);
