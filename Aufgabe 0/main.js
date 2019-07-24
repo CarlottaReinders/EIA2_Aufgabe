@@ -7,3 +7,4 @@ function Begruesung() {
     }
     console.info("Hello " + name + ".");
 }
+//# sourceMappingURL=main.js.map

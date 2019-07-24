@@ -4,22 +4,22 @@ var EisdDealer;
     function init(_event) {
         document.getElementById("fertigeBestellung").addEventListener("click", fertigeBestellung);
         console.log(document.getElementById("fertigeBestellung"));
-        var fieldsets = document.getElementsByTagName("fieldset");
-        for (var i = 0; i < fieldsets.length; i++) {
-            var fieldset = fieldsets[i];
+        let fieldsets = document.getElementsByTagName("fieldset");
+        for (let i = 0; i < fieldsets.length; i++) {
+            let fieldset = fieldsets[i];
             fieldset.addEventListener("change", bestellung);
             fieldset.addEventListener("change", bestellwert);
         }
     }
     function bestellung(_event) {
-        var bestellungsOptionen = document.getElementsByTagName("input");
+        let bestellungsOptionen = document.getElementsByTagName("input");
         console.log("war hier");
         document.getElementById("endSorten").innerHTML = "Sorten: ";
         document.getElementById("endToppings").innerHTML = "Toppings: ";
         document.getElementById("endWaffelOderBecher").innerHTML = "Behälter: ";
         document.getElementById("endLieferoptionen").innerHTML = "Versandart: ";
         document.getElementById("endVersandinformationen").innerHTML = "Versandinformationen: ";
-        for (var i = 0; i < bestellungsOptionen.length; i++) {
+        for (let i = 0; i < bestellungsOptionen.length; i++) {
             if (bestellungsOptionen[i].checked == true) {
                 if (bestellungsOptionen[i].name == "Streusel Vollmilch"
                     || bestellungsOptionen[i].name == "Streusel weiß"
@@ -29,18 +29,18 @@ var EisdDealer;
                     || bestellungsOptionen[i].name == "Sahne"
                     || bestellungsOptionen[i].name == "Raspelschokolade weiß"
                     || bestellungsOptionen[i].name == "Raspelschokolade Vollmilch") {
-                    var target = document.createElement("ul");
-                    target.innerHTML = "" + bestellungsOptionen[i].name;
+                    let target = document.createElement("ul");
+                    target.innerHTML = `${bestellungsOptionen[i].name}`;
                     document.getElementById("endToppings").appendChild(target);
                 }
                 else if (bestellungsOptionen[i].name == "Behaeltnis") {
-                    var target = document.createElement("ul");
-                    target.innerHTML = "" + bestellungsOptionen[i].id;
+                    let target = document.createElement("ul");
+                    target.innerHTML = `${bestellungsOptionen[i].id}`;
                     document.getElementById("endWaffelOderBecher").appendChild(target);
                 }
                 else if (bestellungsOptionen[i].name == "shipping") {
-                    var target = document.createElement("ul");
-                    target.innerHTML = "" + bestellungsOptionen[i].id;
+                    let target = document.createElement("ul");
+                    target.innerHTML = `${bestellungsOptionen[i].id}`;
                     document.getElementById("endLieferoptionen").appendChild(target);
                 }
             }
@@ -52,17 +52,17 @@ var EisdDealer;
                 || bestellungsOptionen[i].name == "joghurt" && Number(bestellungsOptionen[i].value) > 0
                 || bestellungsOptionen[i].name == "banane" && Number(bestellungsOptionen[i].value) > 0) {
                 console.log("vanillaja");
-                var target = document.createElement("ul");
-                target.innerHTML = bestellungsOptionen[i].value + " Kugel(n) " + bestellungsOptionen[i].name;
+                let target = document.createElement("ul");
+                target.innerHTML = `${bestellungsOptionen[i].value} Kugel(n) ${bestellungsOptionen[i].name}`;
                 document.getElementById("endSorten").appendChild(target);
             }
         }
     }
     function bestellwert(_event) {
-        var orderSum = 0;
-        var orderPrice = 0;
-        var bestellungsOptionen = document.getElementsByTagName("input");
-        for (var i = 0; i < bestellungsOptionen.length; i++) {
+        let orderSum = 0;
+        let orderPrice = 0;
+        let bestellungsOptionen = document.getElementsByTagName("input");
+        for (let i = 0; i < bestellungsOptionen.length; i++) {
             if (bestellungsOptionen[i].checked == true
                 || bestellungsOptionen[i].name == "schokolade" && Number(bestellungsOptionen[i].value) > 0
                 || bestellungsOptionen[i].name == "vanille" && Number(bestellungsOptionen[i].value) > 0
@@ -77,20 +77,20 @@ var EisdDealer;
                 console.log(orderSum);
             }
         }
-        document.getElementById("price").innerHTML = "Preis:  " + orderSum + " \u20AC";
+        document.getElementById("price").innerHTML = `Preis:  ${orderSum} €`;
     }
     function fertigeBestellung() {
-        var deliveryStatus = 0;
-        var standardversand = document.getElementById("standard");
-        var expressversand = document.getElementById("express");
-        var selbstabholung = document.getElementById("selbst");
-        var name = document.getElementById("name");
-        var telefonnummer = document.getElementById("telefonnummer");
-        var straße = document.getElementById("straße");
-        var hausnummer = document.getElementById("hausnummer");
-        var postleitzahl = document.getElementById("postleitzahl");
-        var stadt = document.getElementById("stadt");
-        var land = document.getElementById("land");
+        let deliveryStatus = 0;
+        let standardversand = document.getElementById("standard");
+        let expressversand = document.getElementById("express");
+        let selbstabholung = document.getElementById("selbst");
+        let name = document.getElementById("name");
+        let telefonnummer = document.getElementById("telefonnummer");
+        let straße = document.getElementById("straße");
+        let hausnummer = document.getElementById("hausnummer");
+        let postleitzahl = document.getElementById("postleitzahl");
+        let stadt = document.getElementById("stadt");
+        let land = document.getElementById("land");
         if (standardversand.checked == true || expressversand.checked == true || selbstabholung.checked == true) {
             deliveryStatus = 1;
         }

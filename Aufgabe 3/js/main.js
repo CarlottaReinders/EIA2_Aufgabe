@@ -1,182 +1,182 @@
 //Hello world
-var h7 = {
+let h7 = {
     bild: 1,
     value: 7,
     position: "nichts",
 };
-var h8 = {
+let h8 = {
     bild: 1,
     value: 8,
     position: "nichts",
 };
-var h9 = {
+let h9 = {
     bild: 1,
     value: 9,
     position: "nichts",
 };
-var h10 = {
+let h10 = {
     bild: 1,
     value: 10,
     position: "nichts",
 };
-var hB = {
+let hB = {
     bild: 1,
     value: 11,
     position: "nichts",
 };
-var hD = {
+let hD = {
     bild: 1,
     value: 12,
     position: "nichts",
 };
-var hK = {
+let hK = {
     bild: 1,
     value: 13,
     position: "nichts",
 };
-var hA = {
+let hA = {
     bild: 1,
     value: 14,
     position: "nichts",
 };
-var kr7 = {
+let kr7 = {
     bild: 2,
     value: 7,
     position: "nichts",
 };
-var kr8 = {
+let kr8 = {
     bild: 2,
     value: 8,
     position: "nichts",
 };
-var kr9 = {
+let kr9 = {
     bild: 2,
     value: 9,
     position: "nichts",
 };
-var kr10 = {
+let kr10 = {
     bild: 2,
     value: 10,
     position: "nichts",
 };
-var krB = {
+let krB = {
     bild: 2,
     value: 11,
     position: "nichts",
 };
-var krD = {
+let krD = {
     bild: 2,
     value: 12,
     position: "nichts",
 };
-var krK = {
+let krK = {
     bild: 2,
     value: 13,
     position: "nichts",
 };
-var krA = {
+let krA = {
     bild: 2,
     value: 14,
     position: "nichts",
 };
-var p7 = {
+let p7 = {
     bild: 3,
     value: 7,
     position: "nichts",
 };
-var p8 = {
+let p8 = {
     bild: 3,
     value: 8,
     position: "nichts",
 };
-var p9 = {
+let p9 = {
     bild: 3,
     value: 9,
     position: "nichts",
 };
-var p10 = {
+let p10 = {
     bild: 3,
     value: 10,
     position: "nichts",
 };
-var pB = {
+let pB = {
     bild: 3,
     value: 11,
     position: "nichts",
 };
-var pD = {
+let pD = {
     bild: 3,
     value: 12,
     position: "nichts",
 };
-var pK = {
+let pK = {
     bild: 3,
     value: 13,
     position: "nichts",
 };
-var pA = {
+let pA = {
     bild: 3,
     value: 14,
     position: "nichts",
 };
-var ka7 = {
+let ka7 = {
     bild: 4,
     value: 7,
     position: "nichts",
 };
-var ka8 = {
+let ka8 = {
     bild: 4,
     value: 8,
     position: "nichts",
 };
-var ka9 = {
+let ka9 = {
     bild: 4,
     value: 9,
     position: "nichts",
 };
-var ka10 = {
+let ka10 = {
     bild: 4,
     value: 10,
     position: "nichts",
 };
-var kaB = {
+let kaB = {
     bild: 4,
     value: 11,
     position: "nichts",
 };
-var kaD = {
+let kaD = {
     bild: 4,
     value: 12,
     position: "nichts",
 };
-var kaK = {
+let kaK = {
     bild: 4,
     value: 13,
     position: "nichts",
 };
-var kaA = {
+let kaA = {
     bild: 4,
     value: 14,
     position: "nichts",
 };
 /* 2. Arrays */
-var deck = [h7, h8, h9, h10, hB, hD, hK, hA, kr7, kr8, kr9, kr10, krB, krD, krK, krA, p7, p8, p9, p10, pB, pD, pK, pA, ka7, ka8, ka9, ka10, kaB, kaD, kaK, kaA];
-var hand = [];
-var obersteKarte;
-var ablagestapel = [];
+let deck = [h7, h8, h9, h10, hB, hD, hK, hA, kr7, kr8, kr9, kr10, krB, krD, krK, krA, p7, p8, p9, p10, pB, pD, pK, pA, ka7, ka8, ka9, ka10, kaB, kaD, kaK, kaA];
+let hand = [];
+let obersteKarte;
+let ablagestapel = [];
 /* 3. Funktion Spielstart */
 function spielstart() {
-    var kartenanzahl;
+    let kartenanzahl;
     do {
         kartenanzahl = parseInt(prompt("Kartenanzahl angeben (Zahl von 1 bis 6 eingeben)"));
     } while (isNaN(kartenanzahl) || kartenanzahl > 6 || kartenanzahl < 1);
     console.log("kartenanzahl: " + kartenanzahl);
-    for (var n = 0; n < kartenanzahl; n++) { /* so lange die Variable n kleiner ist als die Anzahl der Karten, wird die Funktion "karteZiehen" ausgeführt */
+    for (let n = 0; n < kartenanzahl; n++) { /* so lange die Variable n kleiner ist als die Anzahl der Karten, wird die Funktion "karteZiehen" ausgeführt */
         karteZiehen();
     }
     console.log(hand);
     nachziehstapelGenerieren();
-    var i = Math.floor(Math.random() * (deck.length));
+    let i = Math.floor(Math.random() * (deck.length));
     obersteKarte = deck[i];
     deck.splice(i, 1);
     ablagestapelGenerieren();
@@ -186,7 +186,7 @@ function spielstart() {
 /* 4. Funktion zum Karte ziehen */
 function karteZiehen() {
     if (deck.length > 0) {
-        var i = Math.floor(Math.random() * (deck.length));
+        let i = Math.floor(Math.random() * (deck.length));
         hand.push(deck[i]); /* Karte aus dem Deck wird den Handkarten hinzugefügt */
         deck.splice(i, 1);
         handkarten();
@@ -198,120 +198,130 @@ function karteZiehen() {
 }
 /* 5. Funktion um den Ablagestapel zu generieren */
 function ablagestapelGenerieren() {
-    var write = "";
-    write += "<div class=\"cards\">";
+    let write = "";
+    write += `<div class="cards">`;
     switch (obersteKarte.bild) {
         case 1:
-            write += "<img src=\"img/herz.jpeg\" class=\"symbol\" alt=\"\u2665\">\n                <div class=\"rot\">";
+            write += `<img src="img/herz.jpeg" class="symbol" alt="♥">
+                <div class="rot">`;
             break;
         case 2:
-            write += "<img src=\"img/kreuz.jpeg\" class=\"symbol\" alt=\"\u2663\"> \n                <div class=\"schwarz\">";
+            write += `<img src="img/kreuz.jpeg" class="symbol" alt="♣"> 
+                <div class="schwarz">`;
             break;
         case 3:
-            write += "<img src=\"img/pik.jpeg\" class=\"symbol\" alt=\"\u2660\">\n                <div class=\"schwarz\">";
+            write += `<img src="img/pik.jpeg" class="symbol" alt="♠">
+                <div class="schwarz">`;
             break;
         case 4:
-            write += "<img src=\"img/karo.jpeg\" class=\"symbol\" alt=\"\u2666\">\n                <div class=\"rot\">";
+            write += `<img src="img/karo.jpeg" class="symbol" alt="♦">
+                <div class="rot">`;
             break;
         default:
             console.log("Bild konnte nicht geladen werden");
     }
     switch (obersteKarte.value) {
         case 7:
-            write += "7</div>";
+            write += `7</div>`;
             break;
         case 8:
-            write += "8</div>";
+            write += `8</div>`;
             break;
         case 9:
-            write += "9</div>";
+            write += `9</div>`;
             break;
         case 10:
-            write += "10</div>";
+            write += `10</div>`;
             break;
         case 11:
-            write += "B</div>";
+            write += `B</div>`;
             break;
         case 12:
-            write += "D</div>";
+            write += `D</div>`;
             break;
         case 13:
-            write += "K</div>";
+            write += `K</div>`;
             break;
         case 14:
-            write += "A</div>";
+            write += `A</div>`;
             break;
         default:
             console.log("value konnte nicht geladen werden");
     }
-    write += "</div>";
-    document.getElementById("Stapel").innerHTML = "" + write;
+    write += `</div>`;
+    document.getElementById("Stapel").innerHTML = `${write}`;
 }
 /* 6. Funktion um den Nachziehstapel zu generieren */
 function nachziehstapelGenerieren() {
     document.getElementById("Deck").addEventListener("click", karteZiehen); /* durch das click-event wird die Funktion karteZiehen ausgeführt */
-    document.getElementById("Deck").innerHTML = "<div class=\"cards\">\n    <img src=\"img/r\u00FCckseite.jpeg\" alt=\"MISSING TEXTURE\" class=\"kartenr\u00FCckseite\">\n    </div>";
+    document.getElementById("Deck").innerHTML = `<div class="cards">
+    <img src="img/rückseite.jpeg" alt="MISSING TEXTURE" class="kartenrückseite">
+    </div>`;
 }
 /* 7. Funktion um die Handkarten zu generieren */
 function handkarten() {
     document.getElementById("kartenAufHand").addEventListener("click", karteLegen);
     document.getElementById("kartenAufHand").innerHTML = "";
-    for (var n = 0; n < hand.length; n++) {
+    for (let n = 0; n < hand.length; n++) {
         hand[n].position = "position" + n;
-        var write = "";
-        write += "<div class=\"cards\" id=\"position" + n + "\">";
+        let write = "";
+        write += `<div class="cards" id="position${n}">`;
         switch (hand[n].bild) {
             case 1:
-                write += "<img src=\"img/herz.jpeg\" class=\"symbol\" alt=\"\u2665\">\n                <div class=\"rot\">";
+                write += `<img src="img/herz.jpeg" class="symbol" alt="♥">
+                <div class="rot">`;
                 break;
             case 2:
-                write += "<img src=\"img/kreuz.jpeg\" class=\"symbol\" alt=\"\u2663\"> \n                <div class=\"schwarz\">";
+                write += `<img src="img/kreuz.jpeg" class="symbol" alt="♣"> 
+                <div class="schwarz">`;
                 break;
             case 3:
-                write += "<img src=\"img/pik.jpeg\" class=\"symbol\" alt=\"\u2660\">\n                <div class=\"schwarz\">";
+                write += `<img src="img/pik.jpeg" class="symbol" alt="♠">
+                <div class="schwarz">`;
                 break;
             case 4:
-                write += "<img src=\"img/karo.jpeg\" class=\"symbol\" alt=\"\u2666\"> \n                <div class=\"rot\">";
+                write += `<img src="img/karo.jpeg" class="symbol" alt="♦"> 
+                <div class="rot">`;
                 break;
             default:
                 console.log("Bild konnte nicht geladen werden");
         }
         switch (hand[n].value) {
             case 7:
-                write += "7</div>";
+                write += `7</div>`;
                 break;
             case 8:
-                write += "8</div>";
+                write += `8</div>`;
                 break;
             case 9:
-                write += "9</div>";
+                write += `9</div>`;
                 break;
             case 10:
-                write += "10</div>";
+                write += `10</div>`;
                 break;
             case 11:
-                write += "B</div>";
+                write += `B</div>`;
                 break;
             case 12:
-                write += "D</div>";
+                write += `D</div>`;
                 break;
             case 13:
-                write += "K</div>";
+                write += `K</div>`;
                 break;
             case 14:
-                write += "A</div>";
+                write += `A</div>`;
                 break;
             default:
                 console.log("value konnte nicht geladen werden");
         }
-        write += "</div>";
-        document.getElementById("kartenAufHand").innerHTML += "" + write;
+        write += `</div>`;
+        document.getElementById("kartenAufHand").innerHTML += `${write}`;
     }
 }
 /* 8. Funktion zum legen einer Karte */
 function karteLegen() {
-    var gewählteKarteID = event.target;
-    for (var i = 0; i < hand.length; i++) {
+    let gewählteKarteID = event.target;
+    for (let i = 0; i < hand.length; i++) {
         if (String(gewählteKarteID.getAttribute("id")) == hand[i].position) {
             if (hand[i].bild == obersteKarte.bild || hand[i].value == obersteKarte.value) {
                 ablagestapel.push(obersteKarte);
@@ -334,8 +344,8 @@ function kartenSortieren() {
     handkarten();
 }
 function sortByvalue(_x, _y) {
-    var value_x = _x.value; /* die Variablen werden definiert */
-    var value_y = _y.value;
+    let value_x = _x.value; /* die Variablen werden definiert */
+    let value_y = _y.value;
     if (value_x < value_y)
         return -1;
     if (value_x > value_y)
@@ -344,8 +354,8 @@ function sortByvalue(_x, _y) {
         return 0;
 }
 function sortBybild(_x, _y) {
-    var bild_x = _x.value;
-    var bild_y = _y.value;
+    let bild_x = _x.value;
+    let bild_y = _y.value;
     if (bild_x < bild_y)
         return -1;
     if (bild_x > bild_y)

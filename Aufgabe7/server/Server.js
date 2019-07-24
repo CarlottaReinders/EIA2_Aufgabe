@@ -25,5 +25,5 @@ function handleRequest(_request, _response) {
     for (let key in url.query)
         _response.write("<p>" + key + url.query[key] + "</p>");
     _response.end(); // _response wird beendet; der Server bekommt die Nachricht, dass request nun fertig ist
-} // die Funktion "handleRequest" wird geschlossen
+}
 //# sourceMappingURL=Server.js.map
