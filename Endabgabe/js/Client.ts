@@ -34,13 +34,12 @@ namespace Fishies {
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let playerArray: Player[] = JSON.parse(xhr.response);
 
-            document.getElementById("server").innerHTML = "";
+            document.getElementById("Name").innerHTML = " ";
+            document.getElementById("Zahl").innerHTML = " ";
 
-            for (let i: number = 0; i < 6; i++) {
+            for (let i: number = 0; i < playerArray.length; i++) {
 
-                let newPlayer = document.createElement("div");
-                document.getElementById("anzeige").appendChild(newPlayer);
-                newPlayer.innerHTML = `<div>${playerArray[i].name} : ${playerArray[i].score}</div>`;
+                document.getElementById("Name").innerHTML = `<div>${playerArray[i].name} : ${playerArray[i].score}</div>`;
                 console.log(playerArray[i].name);
             }
 

@@ -29,11 +29,10 @@ var Fishies;
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let playerArray = JSON.parse(xhr.response);
-            document.getElementById("server").innerHTML = "";
-            for (let i = 0; i < 6; i++) {
-                let newPlayer = document.createElement("div");
-                document.getElementById("anzeige").appendChild(newPlayer);
-                newPlayer.innerHTML = `<div>${playerArray[i].name} : ${playerArray[i].score}</div>`;
+            document.getElementById("Name").innerHTML = " ";
+            document.getElementById("Zahl").innerHTML = " ";
+            for (let i = 0; i < playerArray.length; i++) {
+                document.getElementById("Name").innerHTML = `<div>${playerArray[i].name} : ${playerArray[i].score}</div>`;
                 console.log(playerArray[i].name);
             }
         }
