@@ -18,6 +18,9 @@ namespace Fishies {
         canvas = document.getElementsByTagName("canvas")[0];
         crc = canvas.getContext("2d");
         document.getElementById("tryAgain").addEventListener("click", restart);
+
+        insert();
+        refresh(); 
         
         drawBackground();
         
@@ -58,8 +61,14 @@ namespace Fishies {
 
         for (let i: number = 0; i < allFishArray.length; i++) {
             allFishArray[i].update();
-            if(player.checkCollision(allFishArray[i])) {
+            if(player.checkCollision(allFishArray[i]) == "kill") {
                 deleteObject(allFishArray[i]);
+            } else if(player.checkCollision(allFishArray[i]) == "gameOver") {
+                allFishArray.splice(0, allFishArray.length);
+                document.getElementById("gameOver").style.display = "block";
+                console.log("Insert Hier MeinFish!");
+                insert();
+                refresh();  
             }
         }
         crc.fillStyle = "black";
@@ -186,11 +195,10 @@ namespace Fishies {
     }
 
     function restart() {
-        insert();
-        refresh();
+        
         score = 0;
         document.getElementById("gameOver").style.display = "none";
-        allFishArray.splice(0, allFishArray.length);
+        
         generateBigFish();
 
         player = new MainFish();
@@ -198,6 +206,7 @@ namespace Fishies {
         generateShark();
 
         generateSmallFish();
+        
     }
 
 }

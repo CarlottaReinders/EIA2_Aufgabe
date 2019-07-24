@@ -92,7 +92,7 @@ namespace Fishies {
         }
 
 
-        checkCollision(fish: AllFish): boolean {
+        checkCollision(fish: AllFish): string {
             let xDistance: number = Math.abs(this.x - fish.x);
             let yDistance: number = Math.abs(this.y - fish.y);
             if(Math.sqrt( Math.pow(xDistance, 2) + Math.pow(yDistance, 2) ) < 40) {
@@ -100,16 +100,16 @@ namespace Fishies {
                     this.volume += 1;
                     score += 2;
                     console.log("addVolume");
-                    return true;
+                    return "kill";
 
                 } else {
-                    document.getElementById("gameOver").style.display = "block";
-                                   
-                    return false;
+
+                                 
+                    return "gameOver";
                 }
                 
             }
-            return false;
+            return "nothing";
         }
     }
 }

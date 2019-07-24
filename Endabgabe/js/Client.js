@@ -4,7 +4,6 @@ var Fishies;
     function insert() {
         let query = "command=insert";
         query += "&name=" + Fishies.playerName + "&score=" + Fishies.score;
-        console.log(query);
         sendRequest(query, handleInsertResponse);
     }
     Fishies.insert = insert;
@@ -22,7 +21,7 @@ var Fishies;
     function handleInsertResponse(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            alert(xhr.response);
+            //alert(xhr.response);
         }
     }
     function handleFindResponse(_event) {
@@ -31,8 +30,8 @@ var Fishies;
             let playerArray = JSON.parse(xhr.response);
             document.getElementById("Name").innerHTML = " ";
             document.getElementById("Zahl").innerHTML = " ";
-            for (let i = 0; i < playerArray.length; i++) {
-                document.getElementById("Name").innerHTML = `<div>${playerArray[i].name} : ${playerArray[i].score}</div>`;
+            for (let i = playerArray.length - 4; i < playerArray.length; i++) {
+                document.getElementById("Name").innerHTML += `<div>${playerArray[i].name} : ${playerArray[i].score}</div>`;
                 console.log(playerArray[i].name);
             }
         }

@@ -12,6 +12,8 @@ var Fishies;
         Fishies.canvas = document.getElementsByTagName("canvas")[0];
         Fishies.crc = Fishies.canvas.getContext("2d");
         document.getElementById("tryAgain").addEventListener("click", restart);
+        Fishies.insert();
+        Fishies.refresh();
         drawBackground();
         imageData = Fishies.crc.getImageData(0, 0, Fishies.canvas.width, Fishies.canvas.height);
         generateBigFish();
@@ -39,8 +41,15 @@ var Fishies;
         player.update();
         for (let i = 0; i < allFishArray.length; i++) {
             allFishArray[i].update();
-            if (player.checkCollision(allFishArray[i])) {
+            if (player.checkCollision(allFishArray[i]) == "kill") {
                 deleteObject(allFishArray[i]);
+            }
+            else if (player.checkCollision(allFishArray[i]) == "gameOver") {
+                allFishArray.splice(0, allFishArray.length);
+                document.getElementById("gameOver").style.display = "block";
+                console.log("Insert Hier MeinFish!");
+                Fishies.insert();
+                Fishies.refresh();
             }
         }
         Fishies.crc.fillStyle = "black";
@@ -152,11 +161,8 @@ var Fishies;
         }
     }
     function restart() {
-        Fishies.insert();
-        Fishies.refresh();
         Fishies.score = 0;
         document.getElementById("gameOver").style.display = "none";
-        allFishArray.splice(0, allFishArray.length);
         generateBigFish();
         player = new Fishies.MainFish();
         generateShark();

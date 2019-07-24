@@ -5,7 +5,6 @@ namespace Fishies {
     export function insert(): void {
         let query: string = "command=insert";
         query += "&name=" + playerName + "&score=" + score;
-        console.log(query);
         sendRequest(query, handleInsertResponse);
     }
 
@@ -24,7 +23,7 @@ namespace Fishies {
     function handleInsertResponse(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            alert(xhr.response);
+            //alert(xhr.response);
         }
     }
 
@@ -37,9 +36,9 @@ namespace Fishies {
             document.getElementById("Name").innerHTML = " ";
             document.getElementById("Zahl").innerHTML = " ";
 
-            for (let i: number = 0; i < playerArray.length; i++) {
+            for (let i: number = playerArray.length-4; i < playerArray.length; i++) {
 
-                document.getElementById("Name").innerHTML = `<div>${playerArray[i].name} : ${playerArray[i].score}</div>`;
+                document.getElementById("Name").innerHTML += `<div>${playerArray[i].name} : ${playerArray[i].score}</div>`;
                 console.log(playerArray[i].name);
             }
 

@@ -83,14 +83,13 @@ var Fishies;
                     this.volume += 1;
                     Fishies.score += 2;
                     console.log("addVolume");
-                    return true;
+                    return "kill";
                 }
                 else {
-                    document.getElementById("gameOver").style.display = "block";
-                    return false;
+                    return "gameOver";
                 }
             }
-            return false;
+            return "nothing";
         }
     }
     Fishies.MainFish = MainFish;
