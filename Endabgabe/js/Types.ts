@@ -4,5 +4,5 @@ interface allScores {
 
 interface Player {
     name: string;
-    punkt: number;
+    score: number;
 }
