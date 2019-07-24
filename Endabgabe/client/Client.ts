@@ -40,7 +40,7 @@ namespace Fishies {
 
                 let newPlayer = document.createElement("div");
                 document.getElementById("anzeige").appendChild(newPlayer);
-                newPlayer.innerHTML = `<div>${playerArray[i].name} : ${playerArray[i].punkt}</div>`;
+                newPlayer.innerHTML = `<div>${playerArray[i].name} : ${playerArray[i].score}</div>`;
                 console.log(playerArray[i].name);
             }
 
