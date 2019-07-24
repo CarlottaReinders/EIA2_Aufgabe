@@ -13,7 +13,7 @@ h2 {
     background-image: url("../img/fischmuster1.jpg"); 
 }
 
-#server {
+#allScores {
     background-color: #a0e9ffd8;
     display: grid;
     height: 300px;

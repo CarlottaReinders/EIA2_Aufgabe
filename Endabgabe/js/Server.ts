@@ -28,31 +28,21 @@ function handleListen(): void {
 function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
     console.log("Request received");
 
-    let query: AssocStringString = <AssocStringString> Url.parse(_request.url, true).query;
+    let query: allScores = <allScores> Url.parse(_request.url, true).query;
     let command: string = query["command"];
-    let matrikel: string = query["matrikel"];
+    /*let score: string = query["score"];*/
 
     switch (command) {
         case "insert":
-            let student: StudentData = {
+            let player: Player = {
                 name: query["name"],
-                firstname: query["firstname"],
-                matrikel: parseInt(query["matrikel"])
+                score: parseInt(query["score"])
             };
-            Database.insert(student);
+            Database.insert(player);
             respond(_response, "storing data");
             break;
         case "refresh":
             Database.findAll(findCallback);
-            break;
-
-        case "search":
-            for(let key in query){
-                if(key == "matrikel"){
-                    console.log("hiooo");
-                    Database.searchMatrikelnummer(Number(matrikel), findCallback);
-                }
-            }
             break;
 
         default:

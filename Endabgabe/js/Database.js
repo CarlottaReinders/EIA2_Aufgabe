@@ -2,15 +2,15 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const Mongo = require("mongodb");
 console.log("Database starting");
-let databaseURL = "mongodb://";
+let databaseURL = "mongodb://localhost:27017";
 let databaseName = "test";
 let db;
-let gamer;
+let player;
 // running on heroku?
 if (process.env.NODE_ENV == "production") {
     // databaseURL = "mongodb+srv://username:password@hostname:port/database";
-    databaseURL = "";
-    databaseName = "";
+    databaseURL = "mongodb+srv://EiA2_testuser:Attolrac98@carlosmongo-yycdq.mongodb.net/Scores";
+    databaseName = "Scores";
 }
 // try to connect to database, then activate callback "handleConnect" 
 Mongo.MongoClient.connect(databaseURL, { connectTimeoutMS: 8000 }, handleConnect);
@@ -21,12 +21,12 @@ function handleConnect(_e, _client) {
     else {
         console.log("Connected to database!");
         db = _client.db(databaseName);
-        gamer = db.collection("Highscore");
+        player = db.collection("Players");
     }
 }
 function insert(_doc) {
     // try insertion then activate callback "handleInsert"
-    gamer.insertOne(_doc, handleInsert);
+    player.insertOne(_doc, handleInsert);
 }
 exports.insert = insert;
 // insertion-handler receives an error object as standard parameter
@@ -36,30 +36,31 @@ function handleInsert(_e) {
 // try to fetch all documents from database, then activate callback
 function findAll(_callback) {
     // cursor points to the retreived set of documents in memory
-    var cursor = gamer.find();
-    console.log(gamer.find());
+    var cursor = player.find();
+    console.log(player.find());
     // try to convert to array, then activate callback "prepareAnswer"
     cursor.toArray(prepareAnswer);
     // toArray-handler receives two standard parameters, an error object and the array
     // implemented as inner function, so _callback is in scope
-    function prepareAnswer(_e, studentArray) {
+    function prepareAnswer(_e, playerArray) {
         if (_e)
             _callback("Error" + _e);
         else
             // stringify creates a json-string, passed it back to _callback
-            _callback(JSON.stringify(studentArray));
+            _callback(JSON.stringify(playerArray));
     }
 }
 exports.findAll = findAll;
-function search(_callback, _finde) {
-    let matrikelnummer = Number(_finde);
-    gamer.find({ "matrikel": matrikelnummer }).toArray(prepareAnswer);
-    function prepareAnswer(_e, studentArray) {
+/*export function search(_callback: Function, _finde: string): void {
+    let score: number = Number(_finde);
+    player.find({ "": score }).toArray(prepareAnswer);
+
+
+    function prepareAnswer(_e: Mongo.MongoError, studentArray: Player[]): void {
         if (_e)
             _callback("Error" + _e);
         else
             _callback(JSON.stringify(studentArray));
     }
-}
-exports.search = search;
+}*/ 
 //# sourceMappingURL=Database.js.map
