@@ -3,6 +3,7 @@ var Fishies;
     document.addEventListener("DOMContentLoaded", init);
     document.addEventListener("keydown", keyPressed);
     document.addEventListener("keyup", keyNotPressedAnymore);
+    Fishies.score = 0;
     let allFishArray = [];
     let fps = 30;
     let imageData;
@@ -10,6 +11,7 @@ var Fishies;
     function init() {
         Fishies.canvas = document.getElementsByTagName("canvas")[0];
         Fishies.crc = Fishies.canvas.getContext("2d");
+        document.getElementById("tryAgain").addEventListener("click", restart);
         drawBackground();
         imageData = Fishies.crc.getImageData(0, 0, Fishies.canvas.width, Fishies.canvas.height);
         generateBigFish();
@@ -25,6 +27,10 @@ var Fishies;
             }
         }
     }
+    /* function gameOver() {
+        let myImg = document.createElement("../img/dead.jpg");
+        document.getElementById
+    } */
     // Update Funktion
     function update() {
         window.setTimeout(update, 1000 / fps);
@@ -37,6 +43,9 @@ var Fishies;
                 deleteObject(allFishArray[i]);
             }
         }
+        Fishies.crc.fillStyle = "black";
+        Fishies.crc.font = "25px Verdana, Geneva, Tahoma, sans-serif";
+        Fishies.crc.fillText("Score: " + Fishies.score, 750, 50);
     }
     function drawBackground() {
         //let canvas = document.getElementsByTagName("canvas")[0];
@@ -44,12 +53,12 @@ var Fishies;
         //Wasser 
         //let wasser: Path2D = new Path2D();
         Fishies.crc.rect(0, 0, 900, 500);
-        Fishies.crc.fillStyle = "#8fabdfef";
+        Fishies.crc.fillStyle = "#a0e9ffd8";
         Fishies.crc.fill();
         //Boden
         let boden = new Path2D();
         boden.rect(0, 400, 900, 100);
-        Fishies.crc.fillStyle = " #614f3fef";
+        Fishies.crc.fillStyle = "#ac8d71";
         Fishies.crc.fill(boden);
         //Steine
         for (let i = 0; i < 4000; i++) {
@@ -57,7 +66,7 @@ var Fishies;
             let y = Math.random() * 600 + 400;
             let steine = new Path2D();
             steine.arc(x, y, 3, 0, 1 * Math.PI);
-            Fishies.crc.fillStyle = "#383532ef";
+            Fishies.crc.fillStyle = "#615c58";
             Fishies.crc.fill(steine);
         }
         //Felsen
@@ -70,27 +79,27 @@ var Fishies;
             fels.bezierCurveTo(x + 5, y + 30, x + 95, y + 45, x + 60, y + 35);
             Fishies.crc.strokeStyle = "#181818";
             Fishies.crc.stroke(fels);
-            Fishies.crc.fillStyle = "#504f4f";
+            Fishies.crc.fillStyle = "#615c58";
             Fishies.crc.fill(fels);
         }
         // Pflanzen
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 40; i++) {
             ;
-            let _x = Math.random() * 450;
-            let _y = Math.random() + 500;
+            let _x = Math.random() * 900;
+            let _y = Math.random() + 600;
             let pflanze1 = new Path2D();
             pflanze1.moveTo(_x - 40, _y + 60);
             pflanze1.lineTo(_x - 10, _y + 80);
             pflanze1.lineTo(_x - 90, _y - 300);
             pflanze1.closePath();
-            Fishies.crc.fillStyle = "#76b67fef";
+            Fishies.crc.fillStyle = "#217957";
             Fishies.crc.fill(pflanze1);
-            Fishies.crc.strokeStyle = "#416345ef";
+            Fishies.crc.strokeStyle = "#1e6449";
             Fishies.crc.stroke(pflanze1);
         }
     }
     function generateSmallFish() {
-        for (let i = 0; i <= 3; i++) {
+        for (let i = 0; i <= 4; i++) {
             let fisch = new Fishies.SmallFish();
             allFishArray.push(fisch);
             fisch.draw();
@@ -104,7 +113,7 @@ var Fishies;
         }
     }
     function generateShark() {
-        for (let i = 0; i <= 2; i++) {
+        for (let i = 0; i <= 3; i++) {
             let shark = new Fishies.Shark();
             allFishArray.push(shark);
             shark.draw();
@@ -141,6 +150,15 @@ var Fishies;
                 player.setDirection("noneY");
                 break;
         }
+    }
+    function restart() {
+        Fishies.score = 0;
+        document.getElementById("gameOver").style.display = "none";
+        allFishArray.splice(0, allFishArray.length);
+        generateBigFish();
+        player = new Fishies.MainFish();
+        generateShark();
+        generateSmallFish();
     }
 })(Fishies || (Fishies = {}));
 //# sourceMappingURL=main.js.map

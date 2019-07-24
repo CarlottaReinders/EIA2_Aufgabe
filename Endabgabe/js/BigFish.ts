@@ -20,18 +20,18 @@ namespace Fishies {
             }
             let koerper: Path2D = new Path2D();
             koerper.ellipse(this.x, this.y, 20, 35, 1.7, 0, 2 * Math.PI);
-            crc.fillStyle = "#aaaaaaff";
+            crc.fillStyle = "#34d497";
             crc.fill(koerper);
-            crc.strokeStyle = "#eca17fef";
+            crc.strokeStyle = "#278360";
             crc.stroke(koerper);
 
             let flosse: Path2D = new Path2D();
             flosse.moveTo(this.x + r*35, this.y + r*3);
             flosse.lineTo(this.x + r*75, this.y - r*15);
             flosse.lineTo(this.x + r*70, this.y + r*30);
-            crc.fillStyle = "#ffb731ef";
+            crc.fillStyle = "#218d76";
             crc.fill(flosse);
-            crc.strokeStyle = "#ffd68bef";
+            crc.strokeStyle = "#278360";
             crc.stroke(flosse);
 
             let auge: Path2D = new Path2D();
@@ -43,6 +43,11 @@ namespace Fishies {
             pupille.arc(this.x - r*24, this.y - 5, 6, 0, 2 * Math.PI);
             crc.fillStyle = "#000000";
             crc.fill(pupille);
+
+            let mund: Path2D = new Path2D();
+            mund.arc(this.x - r*10, this.y + 13, 6, 1.5, 1 * Math.PI);
+            crc.strokeStyle = "#000000";
+            crc.stroke(mund);
         }
 
        /*  update(): void {

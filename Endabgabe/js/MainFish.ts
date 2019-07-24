@@ -25,28 +25,28 @@ namespace Fishies {
                 r = 1;
             }
             let koerper: Path2D = new Path2D();
-            koerper.ellipse(this.x, this.y, 25, 32, 1.7, 0, 2 * Math.PI);
-            crc.fillStyle = "#db0420ff";
+            koerper.ellipse(this.x, this.y, (this.volume*25)/8, (this.volume*32)/8, 1.7, 0, 2 * Math.PI);
+            crc.fillStyle = "#b11106";
             crc.fill(koerper);
-            crc.strokeStyle = "#eca17fef";
+            crc.strokeStyle = "#7a1a1a";
             crc.stroke(koerper);
 
             let flosse: Path2D = new Path2D();
-            flosse.moveTo(this.x + r*20, this.y + r*3);
-            flosse.lineTo(this.x + r*75, this.y - r*15);
-            flosse.lineTo(this.x + r*70, this.y + r*30);
-            crc.fillStyle = "#ffb731ef";
+            flosse.moveTo(this.x + r*(this.volume*30)/8, this.y + r*(this.volume*3)/8);
+            flosse.lineTo(this.x + r*(this.volume*75)/8, this.y - r*(this.volume*15)/8);
+            flosse.lineTo(this.x + r*(this.volume*70)/8, this.y + r*(this.volume*30)/8);
+            crc.fillStyle = "#c71407";
             crc.fill(flosse);
-            crc.strokeStyle = "#ffd68bef";
+            crc.strokeStyle = "#86332d";
             crc.stroke(flosse);
 
             let auge: Path2D = new Path2D();
-            auge.arc(this.x - r*20, this.y - 3, 10, 0, 2 * Math.PI);
+            auge.arc(this.x - r*10, this.y - 3, (this.volume*11)/8, 0, 2 * Math.PI);
             crc.fillStyle = "#FFFFFF";
             crc.fill(auge);
 
             let pupille: Path2D = new Path2D();
-            pupille.arc(this.x - r*24, this.y - 5, 6, 0, 2 * Math.PI);
+            pupille.arc(this.x - r*12, this.y - 3, (this.volume*6)/8, 0, 2 * Math.PI);
             crc.fillStyle = "#000000";
             crc.fill(pupille);
         }
@@ -91,21 +91,26 @@ namespace Fishies {
             }
         }
 
+
         checkCollision(fish: AllFish): boolean {
             let xDistance: number = Math.abs(this.x - fish.x);
             let yDistance: number = Math.abs(this.y - fish.y);
             if(Math.sqrt( Math.pow(xDistance, 2) + Math.pow(yDistance, 2) ) < 40) {
                 if(fish.volume < this.volume) {
                     this.volume += 1;
+                    score += 2;
                     console.log("addVolume");
                     return true;
+
                 } else {
-                    alert("Game Over!");
+                    document.getElementById("gameOver").style.display = "block";
+                    refresh();
+                    
                     return false;
                 }
                 
             }
             return false;
         }
-        }
     }
+}
