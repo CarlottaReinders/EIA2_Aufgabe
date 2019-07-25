@@ -48,6 +48,7 @@ var Fishies;
                 allFishArray.splice(0, allFishArray.length);
                 document.getElementById("gameOver").style.display = "block";
                 console.log("Insert Hier MeinFish!");
+                Fishies.playerName = prompt("Your score: " + Fishies.score, "Your Name");
                 Fishies.insert();
                 Fishies.refresh();
             }

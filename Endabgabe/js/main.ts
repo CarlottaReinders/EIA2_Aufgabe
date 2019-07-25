@@ -67,9 +67,9 @@ namespace Fishies {
                 allFishArray.splice(0, allFishArray.length);
                 document.getElementById("gameOver").style.display = "block";
                 console.log("Insert Hier MeinFish!");
+                playerName = prompt("Your score: " + score, "Your Name" );
                 insert();
                 refresh();  
-                playerName = prompt("Your score: " + score, "Your Name" );
             }
         }
         crc.fillStyle = "black";
