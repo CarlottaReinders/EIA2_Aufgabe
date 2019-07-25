@@ -56,6 +56,14 @@ var Fishies;
         Fishies.crc.fillStyle = "black";
         Fishies.crc.font = "25px Verdana, Geneva, Tahoma, sans-serif";
         Fishies.crc.fillText("Score: " + Fishies.score, 750, 50);
+        if (Fishies.score == 30) {
+            allFishArray.splice(0, allFishArray.length);
+            document.getElementById("gameOver").style.display = "block";
+            Fishies.playerName = prompt("Your score: " + Fishies.score, "Your Name");
+            Fishies.insert();
+            Fishies.refresh();
+            Fishies.score = 0;
+        }
     }
     function drawBackground() {
         //let canvas = document.getElementsByTagName("canvas")[0];

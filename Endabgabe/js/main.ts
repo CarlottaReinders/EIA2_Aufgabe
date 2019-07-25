@@ -76,6 +76,14 @@ namespace Fishies {
         crc.font = "25px Verdana, Geneva, Tahoma, sans-serif";
         crc.fillText("Score: " + score, 750, 50);
         
+        if(score == 30) {
+            allFishArray.splice(0, allFishArray.length);
+            document.getElementById("gameOver").style.display = "block";
+            playerName = prompt("Your score: " + score, "Your Name" );
+            insert();
+            refresh(); 
+            score = 0; 
+        } 
     }
 
     function drawBackground(): void {
