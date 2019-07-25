@@ -45,12 +45,6 @@ namespace Fishies {
         }
     }
 
-    /* function gameOver() {
-        let myImg = document.createElement("../img/dead.jpg");
-        document.getElementById
-    } */
-
-
     // Update Funktion
     function update(): void {
         window.setTimeout(update, 1000 / fps);
@@ -63,6 +57,7 @@ namespace Fishies {
             allFishArray[i].update();
             if(player.checkCollision(allFishArray[i]) == "kill") {
                 deleteObject(allFishArray[i]);
+                
             } else if(player.checkCollision(allFishArray[i]) == "gameOver") {
                 allFishArray.splice(0, allFishArray.length);
                 document.getElementById("gameOver").style.display = "block";

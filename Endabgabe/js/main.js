@@ -29,10 +29,6 @@ var Fishies;
             }
         }
     }
-    /* function gameOver() {
-        let myImg = document.createElement("../img/dead.jpg");
-        document.getElementById
-    } */
     // Update Funktion
     function update() {
         window.setTimeout(update, 1000 / fps);

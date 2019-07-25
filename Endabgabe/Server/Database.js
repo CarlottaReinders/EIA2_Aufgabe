@@ -51,16 +51,4 @@ function findAll(_callback) {
     }
 }
 exports.findAll = findAll;
-/*export function search(_callback: Function, _finde: string): void {
-    let score: number = Number(_finde);
-    player.find({ "": score }).toArray(prepareAnswer);
-
-
-    function prepareAnswer(_e: Mongo.MongoError, studentArray: Player[]): void {
-        if (_e)
-            _callback("Error" + _e);
-        else
-            _callback(JSON.stringify(studentArray));
-    }
-}*/ 
 //# sourceMappingURL=Database.js.map
