@@ -12,7 +12,6 @@ var Fishies;
         Fishies.canvas = document.getElementsByTagName("canvas")[0];
         Fishies.crc = Fishies.canvas.getContext("2d");
         document.getElementById("tryAgain").addEventListener("click", restart);
-        Fishies.insert();
         Fishies.refresh();
         drawBackground();
         imageData = Fishies.crc.getImageData(0, 0, Fishies.canvas.width, Fishies.canvas.height);
@@ -42,6 +41,7 @@ var Fishies;
             }
             else if (player.checkCollision(allFishArray[i]) == "gameOver") {
                 allFishArray.splice(0, allFishArray.length);
+                console.log("bisch du etwa tos?");
                 document.getElementById("gameOver").style.display = "block";
                 console.log("Insert Hier MeinFish!");
                 Fishies.playerName = prompt("Your score: " + Fishies.score, "Your Name");
@@ -54,8 +54,10 @@ var Fishies;
         Fishies.crc.fillText("Score: " + Fishies.score, 750, 50);
         if (Fishies.score == 30) {
             allFishArray.splice(0, allFishArray.length);
-            document.getElementById("gameOver").style.display = "block";
             Fishies.playerName = prompt("Your score: " + Fishies.score, "Your Name");
+            document.getElementById("gameOver").style.display = "block";
+            document.getElementById("loose").style.display = "none";
+            document.getElementById("win").style.display = "block";
             Fishies.insert();
             Fishies.refresh();
             Fishies.score = 0;
@@ -168,6 +170,8 @@ var Fishies;
     function restart() {
         Fishies.score = 0;
         document.getElementById("gameOver").style.display = "none";
+        document.getElementById("win").style.display = "none";
+        document.getElementById("loose").style.display = "block";
         generateBigFish();
         player = new Fishies.MainFish();
         generateShark();

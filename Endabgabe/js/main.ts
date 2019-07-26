@@ -19,7 +19,6 @@ namespace Fishies {
         crc = canvas.getContext("2d");
         document.getElementById("tryAgain").addEventListener("click", restart);
 
-        insert();
         refresh(); 
         
         drawBackground();
@@ -57,9 +56,10 @@ namespace Fishies {
             allFishArray[i].update();
             if(player.checkCollision(allFishArray[i]) == "kill") {
                 deleteObject(allFishArray[i]);
-                
+
             } else if(player.checkCollision(allFishArray[i]) == "gameOver") {
                 allFishArray.splice(0, allFishArray.length);
+                console.log("bisch du etwa tos?");
                 document.getElementById("gameOver").style.display = "block";
                 console.log("Insert Hier MeinFish!");
                 playerName = prompt("Your score: " + score, "Your Name" );
@@ -73,8 +73,10 @@ namespace Fishies {
         
         if(score == 30) {
             allFishArray.splice(0, allFishArray.length);
-            document.getElementById("gameOver").style.display = "block";
             playerName = prompt("Your score: " + score, "Your Name" );
+            document.getElementById("gameOver").style.display = "block";
+            document.getElementById("loose").style.display = "none";
+            document.getElementById("win").style.display = "block";
             insert();
             refresh(); 
             score = 0; 
@@ -202,6 +204,8 @@ namespace Fishies {
         
         score = 0;
         document.getElementById("gameOver").style.display = "none";
+        document.getElementById("win").style.display = "none";
+        document.getElementById("loose").style.display = "block";
         
         generateBigFish();
 

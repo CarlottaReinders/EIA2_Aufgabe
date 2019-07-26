@@ -99,12 +99,9 @@ namespace Fishies {
                 if(fish.volume < this.volume) {
                     this.volume += 1;
                     score += 2;
-                    console.log("addVolume");
                     return "kill";
 
                 } else {
-
-                                 
                     return "gameOver";
                 }
                 
